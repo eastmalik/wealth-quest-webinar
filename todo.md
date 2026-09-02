@@ -46,5 +46,6 @@
 - [x] Footer with host credit + compliance-style disclaimer
 - [x] Final visual verification via screenshots (desktop + mobile)
 - [x] Hero media: cinematic animated stage visual (light sweep, floating particles, pulsing crowd glow) with graceful fallback to static generated image on load error
-- [ ] Wire VITE_REGISTRATION_ENDPOINT to user's marketing platform when provided
-- [ ] Confirm final event date/time with user (currently Sep 19, 2026 7PM CT placeholder)
+- [x] Support configurable VITE_REGISTRATION_ENDPOINT with local demo fallback (actual platform wiring deferred — user will supply their webhook/form URL later)
+- [x] Support configurable event date via VITE_EVENT_DATE / client/src/lib/event.ts (final date deferred — user will edit; placeholder Sep 19, 2026 7PM CT in place)
+- [x] Document both user-editable settings in README

@@ -1,3 +1,31 @@
+# The Generational Wealth Quest — Live Event Premiere
+
+Single-page webinar registration site with an "underground financial arena" aesthetic (deep matte black, neon gold, retro gaming typography). Built on the static React 19 + Tailwind 4 template described below.
+
+## Page Sections (per design brief)
+1. **Hero** — giant golden live countdown, animated Malik East stage visual (sweeping spotlight, rising gold particles, pulsing crowd glow, CRT scanlines), urgency banner, matte-gold ticket CTA.
+2. **The Stakes** — four boss cards with neon gold frames that glow red on hover and reveal a "debuff" meter.
+3. **The Live Setlist** — alternating vertical fantasy-map timeline of Acts I–IV ending in a "loot unlocked" gem.
+4. **The Proof** — FDIC $205.7B BOLI stat callout plus an animated comparison bar graph.
+5. **The Gateway** — glowing gold registration form (First Name / Best Email / Cell Phone) with full client-side validation and a "Ticket Confirmed" success state.
+
+## Things You'll Want To Edit
+
+**Event date/time (countdown target)** — in `client/src/lib/event.ts`:
+```ts
+const FALLBACK_EVENT_DATE = "2026-09-19T19:00:00-05:00"; // ← your broadcast date (ISO 8601)
+export const EVENT_DATE_LABEL = "SAT • SEP 19 • 7PM CT";  // ← label shown above the countdown
+```
+Or set the `VITE_EVENT_DATE` environment variable (Settings → Secrets) to override without code changes.
+
+**Registration endpoint (where leads go)** — the form posts JSON `{ firstName, email, phone, event, source, submittedAt }` to the URL in `VITE_REGISTRATION_ENDPOINT` (Settings → Secrets). Works with Formspree, Zapier/Make webhooks, ConvertKit, GoHighLevel, etc. **Until you set it, the form runs in demo mode**: it validates, shows the confirmed-ticket state, and stores submissions in the browser's localStorage under the `gwq_registrations` key.
+
+**Copy (bosses, acts, proof stat)** — all in `client/src/lib/event.ts` (`BOSS_CARDS`, `ACTS`, `PROOF_STAT`, `PROOF_COPY`).
+
+**Tests** — `pnpm test` (vitest: countdown math, form validation, content integrity). `pnpm check` for types.
+
+---
+
 # Web App Template (Static Frontend)
 
 Pure React 19 + Tailwind 4 template with shadcn/ui baked in. **Use this README as the checklist for shipping static experiences.**
