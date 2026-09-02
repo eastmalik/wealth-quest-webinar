@@ -103,11 +103,11 @@ function StageVisual() {
       </div>
       <div className="absolute inset-x-0 bottom-0 z-10 px-4 py-3 bg-gradient-to-t from-[oklch(0.11_0.008_95/90%)] to-transparent">
         <p className="font-display text-[9px] sm:text-[10px] text-glow-gold-soft">
-          MALIK EAST
-        </p>
-        <p className="font-heading text-[10px] tracking-[0.25em] text-[oklch(0.65_0.02_95)]">
-          HOST • WEALTH STRATEGIST
-        </p>
+              MALIK EAST
+            </p>
+            <p className="mt-1 font-heading text-[9px] sm:text-[10px] tracking-[0.2em] text-[oklch(0.75_0.03_95)]">
+              HOST • BUSINESS CONSULTANT & ASSET PROTECTION SPECIALIST
+            </p>
       </div>
     </div>
   );
