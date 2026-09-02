@@ -148,9 +148,9 @@ export function HeroSection() {
 
       <div className="container grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
         {/* Left: copy + countdown */}
-        <div>
+        <div className="text-center lg:text-left">
           {/* Urgency banner */}
-          <div className="mb-6 inline-flex flex-wrap items-center gap-x-3 gap-y-1 border border-[oklch(0.82_0.165_92/45%)] bg-[oklch(0.155_0.012_95/85%)] px-4 py-2">
+          <div className="mb-6 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border border-[oklch(0.82_0.165_92/45%)] bg-[oklch(0.155_0.012_95/85%)] px-4 py-2">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-[oklch(0.68_0.26_25)] opacity-75" />
               <span className="relative inline-flex size-2 rounded-full bg-[oklch(0.68_0.26_25)]" />
@@ -175,7 +175,7 @@ export function HeroSection() {
             LIVE WEBINAR
           </p>
 
-          <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-[oklch(0.78_0.02_95)]">
+          <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed text-[oklch(0.78_0.02_95)]">
             Our mission is simple: equip entrepreneurs, professionals, and
             families with the exact systems high-net-worth families have used
             for generations — the same tools the wealthy use to protect, grow,
@@ -192,7 +192,7 @@ export function HeroSection() {
             <p className="mb-3 font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.65_0.02_95)]">
               {isLive ? ">>> THE WEBINAR IS LIVE NOW <<<" : `WEBINAR STARTS IN — ${EVENT_DATE_LABEL}`}
             </p>
-            <div className="flex items-start gap-1.5 sm:gap-4">
+            <div className="flex items-start justify-center lg:justify-start gap-1.5 sm:gap-4">
               <TimeCell value={pad2(days)} label="DAYS" />
               <span className="pt-3 sm:pt-4 font-display text-lg sm:text-3xl text-[oklch(0.82_0.165_92/70%)]">:</span>
               <TimeCell value={pad2(hours)} label="HRS" />
@@ -204,14 +204,14 @@ export function HeroSection() {
           </div>
 
           {/* CTA */}
-          <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-5">
+          <div className="mt-9 flex flex-col sm:flex-row items-center sm:justify-center lg:justify-start gap-5">
             <a
               href="#register"
               className="animate-gold-pulse inline-flex items-center justify-center gap-3 bg-[oklch(0.82_0.165_92)] px-7 py-4 font-display text-[11px] sm:text-xs leading-relaxed text-[oklch(0.14_0.02_95)] border-2 border-[oklch(0.9_0.19_95)] hover:bg-[oklch(0.9_0.19_95)] active:translate-y-0.5 transition"
             >
               CLAIM YOUR FREE TICKET TO THE WEBINAR
             </a>
-            <div className="flex items-center gap-2 text-[oklch(0.65_0.02_95)]">
+            <div className="flex items-center justify-center gap-2 text-[oklch(0.65_0.02_95)]">
               <Users className="size-4 text-[oklch(0.82_0.165_92)]" />
               <span className="font-heading text-xs tracking-[0.15em]">
                 FREE ADMISSION • 100% VIRTUAL
