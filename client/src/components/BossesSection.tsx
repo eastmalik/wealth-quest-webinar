@@ -15,14 +15,15 @@ export function BossesSection() {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.68_0.26_25)]">
-            WARNING: FINAL BOSSES AHEAD
+            THE FOUR PROBLEMS WE'LL SOLVE TOGETHER
           </p>
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
-            THE STAKES
+            WHAT THIS WEBINAR COVERS
           </h2>
           <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            Four bosses stand between you and generational wealth. Each one
-            places a permanent debuff on your life until you learn to beat it.
+            Four real problems keep most families from building wealth that
+            lasts. Here's exactly what they are — and exactly what you'll
+            learn to do about each one during the live webinar.
           </p>
         </div>
 
@@ -63,13 +64,13 @@ export function BossesSection() {
                   {card.copy}
                 </p>
 
-                {/* Debuff meter — revealed on hover */}
+                {/* Learning outcome — revealed on hover */}
                 <div className="mt-5 border-t border-[oklch(0.82_0.165_92/20%)] pt-4 group-hover:border-[oklch(0.6_0.24_27/40%)] transition-colors">
                   <div className="h-1.5 w-full bg-[oklch(0.22_0.015_95)] overflow-hidden">
                     <div className="h-full w-0 bg-gradient-to-r from-[oklch(0.6_0.24_27)] to-[oklch(0.68_0.26_25)] shadow-[0_0_10px_oklch(0.6_0.24_27/80%)] transition-all duration-700 group-hover:w-full" />
                   </div>
                   <p className="mt-2 font-display text-[8px] text-[oklch(0.55_0.02_95)] group-hover:text-[oklch(0.68_0.26_25)] transition-colors">
-                    {card.debuff}
+                    {card.learn}
                   </p>
                 </div>
               </motion.article>

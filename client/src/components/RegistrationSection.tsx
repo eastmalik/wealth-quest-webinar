@@ -69,7 +69,7 @@ export function RegistrationSection() {
                   You're in the arena, {firstName.trim()}. Watch your inbox — your
                   free <span className="text-[oklch(0.9_0.19_95)] font-semibold">Ultimate Budget Guide</span> is
                   on its way so you can scan your inventory for leaks before the
-                  show starts.
+                  webinar starts.
                 </p>
                 <p className="mt-4 font-display text-[8px] leading-relaxed text-[oklch(0.65_0.02_95)]">
                   SMS UPDATES → {phone.trim()}
@@ -85,13 +85,13 @@ export function RegistrationSection() {
                     ENTER THE ARENA
                   </h2>
                   <p className="mt-4 text-sm leading-relaxed text-[oklch(0.78_0.02_95)]">
-                    Lock in your ticket to the live broadcast today. We'll
+                    Lock in your ticket to the live webinar today. We'll
                     instantly send you the{" "}
                     <span className="text-[oklch(0.9_0.19_95)] font-semibold">
                       Ultimate Budget Guide
                     </span>{" "}
                     for free to help you scan your inventory for leaks before the
-                    show starts.
+                    webinar starts.
                   </p>
                   <p className="mt-3 inline-flex items-center gap-2 font-heading text-[11px] tracking-[0.2em] text-[oklch(0.65_0.02_95)]">
                     <Gift className="size-3.5 text-[oklch(0.82_0.165_92)]" />

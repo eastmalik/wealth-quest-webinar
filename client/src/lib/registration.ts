@@ -58,7 +58,7 @@ export async function submitRegistration(
     firstName: payload.firstName.trim(),
     email: payload.email.trim(),
     phone: payload.phone.trim(),
-    event: "The Generational Wealth Quest: Live Event Premiere",
+    event: "The Great Generational Wealth Journey: Live Webinar",
     source: "webinar-registration-page",
     submittedAt: new Date().toISOString(),
   };
@@ -89,4 +89,3 @@ export async function submitRegistration(
     return { ok: false, error: "Network error — check your connection and try again." };
   }
 }
-

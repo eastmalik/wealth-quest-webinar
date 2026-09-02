@@ -1,14 +1,14 @@
 /**
- * Central event configuration for The Generational Wealth Quest: Live Event Premiere.
+ * Central event configuration for The Great Generational Wealth Journey: Live Webinar.
  * Update EVENT_DATE_ISO to change the countdown target.
  */
 
-export const EVENT_TITLE = "The Generational Wealth Quest";
-export const EVENT_SUBTITLE = "Live Event Premiere";
+export const EVENT_TITLE = "The Great Generational Wealth Journey";
+export const EVENT_SUBTITLE = "Live Webinar";
 export const HOST_NAME = "Malik East";
 
 /**
- * Countdown target for the live broadcast.
+ * Countdown target for the live webinar.
  * Defaults to a fixed upcoming broadcast date; override with
  * VITE_EVENT_DATE (ISO 8601, e.g. "2026-09-19T19:00:00-05:00").
  */
@@ -39,7 +39,7 @@ export interface BossCard {
   boss: string;
   subtitle: string;
   copy: string;
-  debuff: string;
+  learn: string;
   level: string;
 }
 
@@ -47,38 +47,38 @@ export const BOSS_CARDS: BossCard[] = [
   {
     id: "interest-siphon",
     boss: "The Interest Siphon",
-    subtitle: "No Budgeting",
+    subtitle: "Topic: Budgeting & Cash-Flow Tracking",
     copy:
-      "You're bleeding gold. Without a system to track your cash, your money leaks out as fast as it comes in. You are wealthy on paper but completely broke at the kitchen table.",
-    debuff: "DEBUFF: -40% GOLD RETENTION",
-    level: "BOSS 01",
+      "Most people earn good money but have no system to track where it goes — so it leaks out as fast as it comes in. In this segment, you'll learn a simple budgeting system that plugs the leaks and shows you exactly where your money is going every month.",
+    learn: "YOU'LL LEARN: A SIMPLE CASH-TRACKING SYSTEM",
+    level: "TOPIC 01",
   },
   {
     id: "credit-wall",
     boss: "The Credit Wall",
-    subtitle: "Unfundable Profile",
+    subtitle: "Topic: Building Personal & Business Credit",
     copy:
-      "Your personal and business scores are weak, leaving you completely unfundable. You're locked out of the best tools before the game even begins.",
-    debuff: "DEBUFF: FUNDING LOCKED",
-    level: "BOSS 02",
+      "Weak personal and business credit scores lock you out of funding before you even start. In this segment, you'll learn how credit actually works and the practical steps to strengthen both profiles so lenders say yes.",
+    learn: "YOU'LL LEARN: HOW TO BECOME FUNDABLE",
+    level: "TOPIC 02",
   },
   {
     id: "exposure-trap",
     boss: "The Exposure Trap",
-    subtitle: "Zero Business Structure",
+    subtitle: "Topic: LLCs & Business Structure",
     copy:
-      "Running a business without an ironclad LLC structure is a legal disaster waiting to happen. One bad lawsuit can wipe out your entire inventory.",
-    debuff: "DEBUFF: ASSETS EXPOSED",
-    level: "BOSS 03",
+      "Running a business without the right legal structure leaves everything you own exposed — one lawsuit can wipe you out. In this segment, you'll learn how an LLC protects your personal assets and how to set yours up the right way.",
+    learn: "YOU'LL LEARN: HOW TO PROTECT YOUR ASSETS",
+    level: "TOPIC 03",
   },
   {
     id: "legacy-wipe",
     boss: "The Legacy Wipe",
-    subtitle: "No Generational Plan",
+    subtitle: "Topic: Generational & Estate Planning",
     copy:
-      "You work, you sweat, and then your wealth dies with you. The game resets to zero for your children, forcing them to start the grind from scratch.",
-    debuff: "DEBUFF: PROGRESS RESET",
-    level: "BOSS 04",
+      "Without a plan, the wealth you spend a lifetime building dies with you — and your children start over from zero. In this segment, you'll learn how trusts and generational planning transfer what you've built to your family, tax-free.",
+    learn: "YOU'LL LEARN: HOW TO PASS WEALTH TO YOUR KIDS",
+    level: "TOPIC 04",
   },
 ];
 

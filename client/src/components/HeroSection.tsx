@@ -156,7 +156,7 @@ export function HeroSection() {
               <span className="relative inline-flex size-2 rounded-full bg-[oklch(0.68_0.26_25)]" />
             </span>
             <span className="font-heading text-[11px] sm:text-xs tracking-[0.18em] text-[oklch(0.85_0.03_95)]">
-              LIVE BROADCAST HOSTED BY <span className="text-[oklch(0.9_0.19_95)] font-semibold">MALIK EAST</span>
+              LIVE WEBINAR HOSTED BY <span className="text-[oklch(0.9_0.19_95)] font-semibold">MALIK EAST</span>
             </span>
             <span className="hidden sm:inline text-[oklch(0.82_0.165_92/60%)]">|</span>
             <span className="font-heading text-[11px] sm:text-xs tracking-[0.18em] text-[oklch(0.68_0.26_25)]">
@@ -165,12 +165,14 @@ export function HeroSection() {
           </div>
 
           <h1 className="font-display text-[clamp(1.15rem,4.2vw,2.9rem)] leading-[1.45] text-[oklch(0.95_0.02_95)]">
-            THE GENERATIONAL
+            THE GREAT
             <br />
-            <span className="text-glow-gold animate-flicker">WEALTH QUEST</span>
+            GENERATIONAL
+            <br />
+            <span className="text-glow-gold animate-flicker">WEALTH JOURNEY</span>
           </h1>
           <p className="mt-3 font-heading text-sm sm:text-base tracking-[0.35em] text-[oklch(0.82_0.165_92)]">
-            LIVE EVENT PREMIERE
+            LIVE WEBINAR
           </p>
 
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-[oklch(0.78_0.02_95)]">
@@ -185,7 +187,7 @@ export function HeroSection() {
           {/* Countdown */}
           <div className="mt-8">
             <p className="mb-3 font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.65_0.02_95)]">
-              {isLive ? ">>> THE SHOW IS LIVE NOW <<<" : `SHOW STARTS IN — ${EVENT_DATE_LABEL}`}
+              {isLive ? ">>> THE WEBINAR IS LIVE NOW <<<" : `WEBINAR STARTS IN — ${EVENT_DATE_LABEL}`}
             </p>
             <div className="flex items-start gap-1.5 sm:gap-4">
               <TimeCell value={pad2(days)} label="DAYS" />
@@ -204,7 +206,7 @@ export function HeroSection() {
               href="#register"
               className="animate-gold-pulse inline-flex items-center justify-center gap-3 bg-[oklch(0.82_0.165_92)] px-7 py-4 font-display text-[11px] sm:text-xs leading-relaxed text-[oklch(0.14_0.02_95)] border-2 border-[oklch(0.9_0.19_95)] hover:bg-[oklch(0.9_0.19_95)] active:translate-y-0.5 transition"
             >
-              CLAIM YOUR FREE TICKET TO THE SHOW
+              CLAIM YOUR FREE TICKET TO THE WEBINAR
             </a>
             <div className="flex items-center gap-2 text-[oklch(0.65_0.02_95)]">
               <Users className="size-4 text-[oklch(0.82_0.165_92)]" />

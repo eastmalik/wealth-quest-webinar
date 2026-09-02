@@ -10,7 +10,7 @@ export function ArenaFooter() {
             <Gamepad2 className="size-5" />
           </span>
           <p className="font-display text-[9px] leading-relaxed text-[oklch(0.82_0.165_92)]">
-            THE GENERATIONAL WEALTH QUEST
+            THE GREAT GENERATIONAL WEALTH JOURNEY
           </p>
           <p className="font-heading text-xs tracking-[0.25em] text-[oklch(0.6_0.02_95)]">
             HOSTED BY {HOST_NAME.toUpperCase()}
@@ -23,7 +23,7 @@ export function ArenaFooter() {
             from publicly available FDIC call report filings.
           </p>
           <p className="text-[11px] text-[oklch(0.45_0.02_95)]">
-            © {new Date().getFullYear()} The Generational Wealth Quest. All rights reserved.
+            © {new Date().getFullYear()} The Great Generational Wealth Journey. All rights reserved.
           </p>
         </div>
       </div>

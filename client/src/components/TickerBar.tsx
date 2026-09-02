@@ -1,5 +1,5 @@
 const ITEMS = [
-  "LIVE BROADCAST HOSTED BY MALIK EAST",
+  "LIVE WEBINAR HOSTED BY MALIK EAST",
   "LIMITED VIEWER SLOTS",
   "FREE TICKET + FREE ULTIMATE BUDGET GUIDE",
   "LEARN THE FLOW",
@@ -21,4 +21,3 @@ export function TickerBar() {
     </div>
   );
 }
-
