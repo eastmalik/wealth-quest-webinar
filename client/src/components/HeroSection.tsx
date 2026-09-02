@@ -3,7 +3,8 @@ import { EVENT_DATE_LABEL, getEventDate } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
 
-const STAGE_IMG = "/manus-storage/malik-east-stage_6eedc6f3.png";
+const STAGE_VIDEO = "/manus-storage/hero-live-feed_61bd8494.mp4";
+const STAGE_POSTER = "/manus-storage/hero-live-feed-poster_3ea209b3.jpg";
 const ARENA_BG = "/manus-storage/arena-bg_aebd8084.png";
 
 const PARTICLES = [
@@ -17,32 +18,47 @@ const PARTICLES = [
 ];
 
 /**
- * Cinematic animated stage visual: the generated stage shot layered with a
- * sweeping spotlight, rising gold particles, and a pulsing crowd glow to
- * emulate the looping live-feed clip. Falls back to the plain static image
- * if the asset fails to load.
+ * Cinematic live-feed visual: the host's looping clip framed as CAM 01,
+ * layered with a sweeping spotlight, rising gold particles, and a pulsing
+ * crowd glow. Falls back to the poster frame, then a placeholder panel,
+ * if the media fails to load.
  */
 function StageVisual() {
-  const [imgError, setImgError] = useState(false);
+  const [mediaError, setMediaError] = useState(false);
+  const [posterError, setPosterError] = useState(false);
 
   return (
     <div className="pixel-frame scanlines relative overflow-hidden bg-[oklch(0.155_0.012_95)]">
-      {imgError ? (
-        <div className="aspect-[3/4] w-full grid place-items-center bg-[oklch(0.13_0.01_95)]">
-          <p className="font-display text-[9px] text-[oklch(0.82_0.165_92)] px-6 text-center leading-relaxed">
-            MAIN STAGE FEED
-            <br />
-            STARTS SOON
-          </p>
-        </div>
+      {mediaError ? (
+        posterError ? (
+          <div className="aspect-[3/4] w-full grid place-items-center bg-[oklch(0.13_0.01_95)]">
+            <p className="font-display text-[9px] text-[oklch(0.82_0.165_92)] px-6 text-center leading-relaxed">
+              MAIN STAGE FEED
+              <br />
+              STARTS SOON
+            </p>
+          </div>
+        ) : (
+          <img
+            src={STAGE_POSTER}
+            alt="Malik East holding the glowing wealth map — live stage feed"
+            className="aspect-[3/4] w-full object-cover"
+            onError={() => setPosterError(true)}
+          />
+        )
       ) : (
         <>
-          <img
-            src={STAGE_IMG}
-            alt="Malik East live on stage at the Generational Wealth Quest premiere"
+          <video
+            src={STAGE_VIDEO}
+            poster={STAGE_POSTER}
             className="aspect-[3/4] w-full object-cover"
-            loading="eager"
-            onError={() => setImgError(true)}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="Malik East holding the glowing wealth map — live stage feed"
+            onError={() => setMediaError(true)}
           />
 
           {/* Sweeping spotlight beam */}

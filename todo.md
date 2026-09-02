@@ -49,3 +49,4 @@
 - [x] Support configurable VITE_REGISTRATION_ENDPOINT with local demo fallback (actual platform wiring deferred — user will supply their webhook/form URL later)
 - [x] Support configurable event date via VITE_EVENT_DATE / client/src/lib/event.ts (final date deferred — user will edit; placeholder Sep 19, 2026 7PM CT in place)
 - [x] Document both user-editable settings in README
+- [x] Replace hero "LIVE FEED CAM 01" static Malik image with user-uploaded looping video (Man_holding_glowing_map_202609011939.mp4), autoplay/muted/loop with image fallback
