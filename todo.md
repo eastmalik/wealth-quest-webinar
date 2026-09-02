@@ -50,3 +50,6 @@
 - [x] Support configurable event date via VITE_EVENT_DATE / client/src/lib/event.ts (final date deferred — user will edit; placeholder Sep 19, 2026 7PM CT in place)
 - [x] Document both user-editable settings in README
 - [x] Replace hero "LIVE FEED CAM 01" static Malik image with user-uploaded looping video (Man_holding_glowing_map_202609011939.mp4), autoplay/muted/loop with image fallback
+- [x] Research Malik East's real bio from 7bandfinancialagency.com/about
+- [x] Add "Meet Your Host" section with Malik's real photo, bio, and credibility markers (gamified styling consistent with his brand)
+- [x] Add scannable "What You'll Walk Away With" bullet block distilled from the four Acts

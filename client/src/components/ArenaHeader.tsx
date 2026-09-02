@@ -4,6 +4,7 @@ import { Gamepad2, Ticket } from "lucide-react";
 const NAV = [
   { href: "#stakes", label: "THE BOSSES" },
   { href: "#setlist", label: "THE SETLIST" },
+  { href: "#host", label: "YOUR HOST" },
   { href: "#proof", label: "THE PROOF" },
   { href: "#register", label: "GET TICKET" },
 ];

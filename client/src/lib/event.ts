@@ -128,3 +128,29 @@ export const ACTS: Act[] = [
 export const PROOF_STAT = "$205.7 BILLION";
 export const PROOF_COPY =
   "As of late 2024, FDIC filings show that U.S. banks hold $205.7 Billion of safe cash value in permanent life insurance as their liquid reserve. They count it as a reserve because they can borrow against it on demand while the balance keeps compounding. Stop renting their capital. It's time to build your own vault.";
+
+export const TAKEAWAYS: string[] = [
+  "Run the Efficiency Scan to find where banks quietly siphon 86% of your mortgage payment as interest",
+  "Restore your Credit Shield with automation tools — no more guessing at scores",
+  "Structure an LLC \"Business Credit Firewall\" that keeps borrowing power off your personal report",
+  "Design a Lifetime Line of Credit that compounds safely while funding deals as liquid collateral",
+  "Use Trusts to bypass probate and transfer wealth 100% tax-free — so your family bank never resets",
+];
+
+export interface HostStat {
+  label: string;
+  value: string;
+}
+
+export const HOST_STATS: HostStat[] = [
+  { label: "CLASS", value: "GUIDE / STRATEGIST" },
+  { label: "LICENSED AGENT SINCE", value: "2020" },
+  { label: "EDUCATION", value: "B.S. — ALCORN STATE" },
+  { label: "STATUS", value: "ACTIVE — TAKING NEW CLIENTS" },
+];
+
+export const HOST_BIO =
+  "Malik East, Co-Creator of The Flow, is the founder of 7Band Financial Agency and a licensed life insurance agent since 2020. He earned a B.S. in Computer Networking and Information Technology from Alcorn State University in 2019, bringing a systems-minded perspective to financial education. His story began in 7th grade learning the saxophone — music taught him timing, rhythm, and harmony, and the same principles now guide the 7-Level Generational Wealth Blueprint he uses to help families build wealth that outlasts them by 100 years.";
+
+export const HOST_QUOTE =
+  "Every time a client reaches a financial goal, it's music to my ears.";
