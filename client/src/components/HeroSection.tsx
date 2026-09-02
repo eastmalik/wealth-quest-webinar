@@ -176,12 +176,15 @@ export function HeroSection() {
           </p>
 
           <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-[oklch(0.78_0.02_95)]">
-            Traditional checking accounts are a trap. The banks take your
-            hard-earned gold, lend it out at{" "}
-            <span className="text-[oklch(0.9_0.19_95)] font-semibold">22%</span>,
-            and pay you almost zero. Stop funding their dreams. It's time to
-            activate <span className="text-[oklch(0.9_0.19_95)] font-semibold">The Flow</span>{" "}
-            and start funding yours.
+            Our mission is simple: equip entrepreneurs, professionals, and
+            families with the exact systems high-net-worth families have used
+            for generations — the same tools the wealthy use to protect, grow,
+            and pass down what they build. This webinar is for the people who{" "}
+            <span className="text-[oklch(0.9_0.19_95)] font-semibold">
+              do not have it all together
+            </span>
+            . If that's you, claim your seat. If not, no hard feelings — this
+            isn't for you.
           </p>
 
           {/* Countdown */}

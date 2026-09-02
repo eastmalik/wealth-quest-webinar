@@ -56,3 +56,4 @@
 - [x] Rebrand: "The Generational Wealth Quest" → "The Great Generational Wealth Journey" everywhere (hero, header, footer, title, metadata, form record)
 - [x] Rebrand: "Live Event Premiere" → "Live Webinar"; "Live Broadcast" → "Live Webinar" language (urgency banner, ticker, countdown label)
 - [x] Rewrite the four boss cards in plain English: each card states the actual webinar topic and what attendees will learn (budgeting, credit, LLC structure, generational planning) — keep the card visual style, drop coded language
+- [x] Replace hero sub-headline paragraph with user's mission statement copy
