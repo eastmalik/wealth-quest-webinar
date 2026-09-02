@@ -62,16 +62,6 @@ export function BossesSection() {
                 <p className="mt-4 text-sm leading-relaxed text-[oklch(0.75_0.02_95)]">
                   {card.copy}
                 </p>
-
-                {/* Learning outcome — revealed on hover */}
-                <div className="mt-5 border-t border-[oklch(0.82_0.165_92/20%)] pt-4 group-hover:border-[oklch(0.6_0.24_27/40%)] transition-colors">
-                  <div className="h-1.5 w-full bg-[oklch(0.22_0.015_95)] overflow-hidden">
-                    <div className="h-full w-0 bg-gradient-to-r from-[oklch(0.6_0.24_27)] to-[oklch(0.68_0.26_25)] shadow-[0_0_10px_oklch(0.6_0.24_27/80%)] transition-all duration-700 group-hover:w-full" />
-                  </div>
-                  <p className="mt-2 font-display text-[8px] text-[oklch(0.55_0.02_95)] group-hover:text-[oklch(0.68_0.26_25)] transition-colors">
-                    {card.learn}
-                  </p>
-                </div>
               </motion.article>
             );
           })}

@@ -39,7 +39,6 @@ export interface BossCard {
   boss: string;
   subtitle: string;
   copy: string;
-  learn: string;
   level: string;
 }
 
@@ -50,7 +49,6 @@ export const BOSS_CARDS: BossCard[] = [
     subtitle: "Restore Your Foundation",
     copy:
       "Some people earn good money but have no system to track where it goes — and a bad credit score stops you from getting credit cards and access to loans from the banks. You'll learn a simple budgeting system plus the practical steps to strengthen your personal credit profile.",
-    learn: "YOU'LL LEARN: TRACK YOUR CASH + BECOME FUNDABLE",
     level: "LEVEL 1",
   },
   {
@@ -59,7 +57,6 @@ export const BOSS_CARDS: BossCard[] = [
     subtitle: "Build Your Base",
     copy:
       "You need more than just an LLC, EIN, and D.U.N.S number for your business legal documents. In this section you'll learn what all you'll need and a way you will know for sure your business is legally set up properly.",
-    learn: "YOU'LL LEARN: HOW TO PROTECT YOUR ASSETS",
     level: "LEVEL 2",
   },
   {
@@ -67,8 +64,7 @@ export const BOSS_CARDS: BossCard[] = [
     boss: "IUL / Lifetime LOC",
     subtitle: "Unlock the Engine",
     copy:
-      "The wealthy don't let their money sit still — they make every dollar do two jobs at once. In this segment, you'll learn how an Indexed Universal Life policy activates the Lifetime Line of Credit: borrow against your cash value to fund deals while your baseline capital keeps compounding uninterrupted.",
-    learn: "YOU'LL LEARN: THE DUAL-JOB MONEY MECHANIC",
+      "This is where things get really interesting. You'll learn how an Indexed Universal Life policy really works from behind the scenes — I will reveal why I call it the Lifetime Line of Credit.",
     level: "LEVEL 4",
   },
   {
@@ -77,7 +73,6 @@ export const BOSS_CARDS: BossCard[] = [
     subtitle: "Construct the Fortress → The Generational Tree",
     copy:
       "Without a plan, the wealth you spend a lifetime building dies with you — and your children start over from zero. In this segment, you'll learn how Trusts and beneficiary architecture move assets into a legal fortress, bypass probate, and transfer wealth tax-free so your Family Bank never resets.",
-    learn: "YOU'LL LEARN: HOW TO PASS WEALTH TO YOUR KIDS",
     level: "LEVELS 5–7",
   },
 ];
