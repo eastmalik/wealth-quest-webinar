@@ -8,7 +8,7 @@ describe("event content", () => {
       "Credit Restoration",
       "LLC Structuring",
       "IUL / Lifetime LOC",
-      "The Generational Transfer",
+      "Transfer of Wealth",
     ]);
     expect(BOSS_CARDS.map((b) => b.level)).toEqual([
       "LEVEL 1",

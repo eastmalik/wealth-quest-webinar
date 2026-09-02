@@ -62,17 +62,17 @@ export const BOSS_CARDS: BossCard[] = [
   {
     id: "lifetime-loc",
     boss: "IUL / Lifetime LOC",
-    subtitle: "Unlock the Engine",
+    subtitle: "Grow your Money Tree",
     copy:
       "This is where things get really interesting. You'll learn how an Indexed Universal Life policy really works from behind the scenes — I will reveal why I call it the Lifetime Line of Credit.",
     level: "LEVEL 4",
   },
   {
     id: "generational-transfer",
-    boss: "The Generational Transfer",
-    subtitle: "Construct the Fortress → The Generational Tree",
+    boss: "Transfer of Wealth",
+    subtitle: "Sit Under the Shade → The Generational Tree",
     copy:
-      "Without a plan, the wealth you spend a lifetime building dies with you — and your children start over from zero. In this segment, you'll learn how Trusts and beneficiary architecture move assets into a legal fortress, bypass probate, and transfer wealth tax-free so your Family Bank never resets.",
+      "In this segment, you'll learn how Estate Planning with an Attorney and Life Insurance Agent are key players when it comes to moving assets into a legal fortress, bypass probate, and transfer the map and the knowledge so your Family Bank never resets.",
     level: "LEVELS 5–7",
   },
 ];
