@@ -2,13 +2,19 @@ import { describe, expect, it } from "vitest";
 import { ACTS, BOSS_CARDS, getEventDate, PROOF_COPY, PROOF_STAT } from "./event";
 
 describe("event content", () => {
-  it("ships all four boss cards from the brief", () => {
+  it("ships all four topic cards aligned to the Game Map levels", () => {
     expect(BOSS_CARDS).toHaveLength(4);
     expect(BOSS_CARDS.map((b) => b.boss)).toEqual([
-      "The Interest Siphon",
-      "The Credit Wall",
-      "The Exposure Trap",
-      "The Legacy Wipe",
+      "Credit Optimization",
+      "LLC Structuring",
+      "IUL / Lifetime LOC",
+      "The Generational Transfer",
+    ]);
+    expect(BOSS_CARDS.map((b) => b.level)).toEqual([
+      "LEVEL 1",
+      "LEVEL 2",
+      "LEVEL 4",
+      "LEVELS 5–7",
     ]);
   });
 
@@ -32,4 +38,3 @@ describe("event content", () => {
     expect(Number.isNaN(d.getTime())).toBe(false);
   });
 });
-

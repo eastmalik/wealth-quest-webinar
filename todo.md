@@ -59,3 +59,4 @@
 - [x] Replace hero sub-headline paragraph with user's mission statement copy
 - [x] Change hero live-feed caption from "HOST • WEALTH STRATEGIST" to "HOST • BUSINESS CONSULTANT & ASSET PROTECTION SPECIALIST"
 - [x] Center all hero content (headline, mission paragraph, countdown, CTA button, admission line) on mobile while keeping desktop left-aligned
+- [x] Align the four webinar topic cards with the 7bandfinancialagency.com/game-map level names and framing for a coherent cross-site theme

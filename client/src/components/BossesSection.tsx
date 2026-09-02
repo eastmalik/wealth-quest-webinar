@@ -1,12 +1,12 @@
 import { BOSS_CARDS } from "@/lib/event";
 import { motion } from "framer-motion";
-import { Droplets, ShieldAlert, Scale, Skull } from "lucide-react";
+import { Shield, Building2, Cog, TreePine, Skull } from "lucide-react";
 
-const ICONS: Record<string, typeof Droplets> = {
-  "interest-siphon": Droplets,
-  "credit-wall": ShieldAlert,
-  "exposure-trap": Scale,
-  "legacy-wipe": Skull,
+const ICONS: Record<string, typeof Shield> = {
+  "credit-optimization": Shield,
+  "llc-structuring": Building2,
+  "lifetime-loc": Cog,
+  "generational-transfer": TreePine,
 };
 
 export function BossesSection() {
@@ -15,15 +15,16 @@ export function BossesSection() {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.68_0.26_25)]">
-            THE FOUR PROBLEMS WE'LL SOLVE TOGETHER
+            FROM THE 7-LEVEL GENERATIONAL WEALTH BLUEPRINT
           </p>
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
             WHAT THIS WEBINAR COVERS
           </h2>
           <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            Four real problems keep most families from building wealth that
-            lasts. Here's exactly what they are — and exactly what you'll
-            learn to do about each one during the live webinar.
+            This live webinar walks you through the key levels of Malik's
+            7-Level Generational Wealth Blueprint — the same system on his
+            Game Map. Here's exactly which levels we cover and what you'll
+            learn at each one.
           </p>
         </div>
 

@@ -45,40 +45,40 @@ export interface BossCard {
 
 export const BOSS_CARDS: BossCard[] = [
   {
-    id: "interest-siphon",
-    boss: "The Interest Siphon",
-    subtitle: "Topic: Budgeting & Cash-Flow Tracking",
+    id: "credit-optimization",
+    boss: "Credit Optimization",
+    subtitle: "Restore Your Shield",
     copy:
-      "Most people earn good money but have no system to track where it goes — so it leaks out as fast as it comes in. In this segment, you'll learn a simple budgeting system that plugs the leaks and shows you exactly where your money is going every month.",
-    learn: "YOU'LL LEARN: A SIMPLE CASH-TRACKING SYSTEM",
-    level: "TOPIC 01",
+      "Most people earn good money but have no system to track where it goes — and weak credit locks them out of funding before they start. In this segment, you'll learn a simple budgeting system that plugs the leaks, plus the practical steps to strengthen your personal credit profile to elite status.",
+    learn: "YOU'LL LEARN: TRACK YOUR CASH + BECOME FUNDABLE",
+    level: "LEVEL 1",
   },
   {
-    id: "credit-wall",
-    boss: "The Credit Wall",
-    subtitle: "Topic: Building Personal & Business Credit",
+    id: "llc-structuring",
+    boss: "LLC Structuring",
+    subtitle: "Build Your Base",
     copy:
-      "Weak personal and business credit scores lock you out of funding before you even start. In this segment, you'll learn how credit actually works and the practical steps to strengthen both profiles so lenders say yes.",
-    learn: "YOU'LL LEARN: HOW TO BECOME FUNDABLE",
-    level: "TOPIC 02",
-  },
-  {
-    id: "exposure-trap",
-    boss: "The Exposure Trap",
-    subtitle: "Topic: LLCs & Business Structure",
-    copy:
-      "Running a business without the right legal structure leaves everything you own exposed — one lawsuit can wipe you out. In this segment, you'll learn how an LLC protects your personal assets and how to set yours up the right way.",
+      "Running a business without the right legal structure leaves everything you own exposed — one lawsuit can wipe you out. In this segment, you'll learn how a formal corporate entity creates a firewall between personal and business liabilities, and how to set yours up the right way.",
     learn: "YOU'LL LEARN: HOW TO PROTECT YOUR ASSETS",
-    level: "TOPIC 03",
+    level: "LEVEL 2",
   },
   {
-    id: "legacy-wipe",
-    boss: "The Legacy Wipe",
-    subtitle: "Topic: Generational & Estate Planning",
+    id: "lifetime-loc",
+    boss: "IUL / Lifetime LOC",
+    subtitle: "Unlock the Engine",
     copy:
-      "Without a plan, the wealth you spend a lifetime building dies with you — and your children start over from zero. In this segment, you'll learn how trusts and generational planning transfer what you've built to your family, tax-free.",
+      "The wealthy don't let their money sit still — they make every dollar do two jobs at once. In this segment, you'll learn how an Indexed Universal Life policy activates the Lifetime Line of Credit: borrow against your cash value to fund deals while your baseline capital keeps compounding uninterrupted.",
+    learn: "YOU'LL LEARN: THE DUAL-JOB MONEY MECHANIC",
+    level: "LEVEL 4",
+  },
+  {
+    id: "generational-transfer",
+    boss: "The Generational Transfer",
+    subtitle: "Construct the Fortress → The Generational Tree",
+    copy:
+      "Without a plan, the wealth you spend a lifetime building dies with you — and your children start over from zero. In this segment, you'll learn how Trusts and beneficiary architecture move assets into a legal fortress, bypass probate, and transfer wealth tax-free so your Family Bank never resets.",
     learn: "YOU'LL LEARN: HOW TO PASS WEALTH TO YOUR KIDS",
-    level: "TOPIC 04",
+    level: "LEVELS 5–7",
   },
 ];
 
