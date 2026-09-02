@@ -46,10 +46,10 @@ export interface BossCard {
 export const BOSS_CARDS: BossCard[] = [
   {
     id: "credit-optimization",
-    boss: "Credit Optimization",
-    subtitle: "Restore Your Shield",
+    boss: "Credit Restoration",
+    subtitle: "Restore Your Foundation",
     copy:
-      "Most people earn good money but have no system to track where it goes — and weak credit locks them out of funding before they start. In this segment, you'll learn a simple budgeting system that plugs the leaks, plus the practical steps to strengthen your personal credit profile to elite status.",
+      "Some people earn good money but have no system to track where it goes — and a bad credit score stops you from getting credit cards and access to loans from the banks. You'll learn a simple budgeting system plus the practical steps to strengthen your personal credit profile.",
     learn: "YOU'LL LEARN: TRACK YOUR CASH + BECOME FUNDABLE",
     level: "LEVEL 1",
   },

@@ -5,7 +5,7 @@ describe("event content", () => {
   it("ships all four topic cards aligned to the Game Map levels", () => {
     expect(BOSS_CARDS).toHaveLength(4);
     expect(BOSS_CARDS.map((b) => b.boss)).toEqual([
-      "Credit Optimization",
+      "Credit Restoration",
       "LLC Structuring",
       "IUL / Lifetime LOC",
       "The Generational Transfer",
