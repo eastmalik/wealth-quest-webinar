@@ -61,3 +61,4 @@
 - [x] Center all hero content (headline, mission paragraph, countdown, CTA button, admission line) on mobile while keeping desktop left-aligned
 - [x] Align the four webinar topic cards with the 7bandfinancialagency.com/game-map level names and framing for a coherent cross-site theme
 - [x] Apply user's visual edits: Level 1 card → "Credit Restoration" / "Restore Your Foundation" with rewritten copy; intro → "the flow key levels"
+- [x] Apply user's visual edits round 2: intro → "walks you through The Flow…"; Level 2 LLC card copy rewritten (LLC/EIN/D.U.N.S)

@@ -58,7 +58,7 @@ export const BOSS_CARDS: BossCard[] = [
     boss: "LLC Structuring",
     subtitle: "Build Your Base",
     copy:
-      "Running a business without the right legal structure leaves everything you own exposed — one lawsuit can wipe you out. In this segment, you'll learn how a formal corporate entity creates a firewall between personal and business liabilities, and how to set yours up the right way.",
+      "You need more than just an LLC, EIN, and D.U.N.S number for your business legal documents. In this section you'll learn what all you'll need and a way you will know for sure your business is legally set up properly.",
     learn: "YOU'LL LEARN: HOW TO PROTECT YOUR ASSETS",
     level: "LEVEL 2",
   },

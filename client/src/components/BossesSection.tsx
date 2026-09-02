@@ -21,10 +21,8 @@ export function BossesSection() {
             WHAT THIS WEBINAR COVERS
           </h2>
           <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            This live webinar walks you through the flow key levels of Malik's
-            7-Level Generational Wealth Blueprint — the same system on his
-            Game Map. Here's exactly which levels we cover and what you'll
-            learn at each one.
+            This live webinar walks you through The Flow. Here is exactly
+            which levels we cover and what you'll learn at each one.
           </p>
         </div>
 
