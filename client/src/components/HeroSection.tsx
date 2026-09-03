@@ -1,5 +1,5 @@
 import { useCountdown, pad2 } from "@/hooks/useCountdown";
-import { EVENT_DATE_LABEL, getEventDate } from "@/lib/event";
+import { EVENT_DATE_LABEL, getEventDate, getEventSentence } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
 
@@ -189,6 +189,12 @@ export function HeroSection() {
 
           {/* Countdown */}
           <div className="mt-8">
+            <p className="mb-2 font-heading text-sm sm:text-base tracking-wide text-[oklch(0.85_0.03_95)]">
+              We go live{" "}
+              <span className="text-[oklch(0.9_0.19_95)] font-semibold">
+                {getEventSentence()}
+              </span>
+            </p>
             <p className="mb-3 font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.65_0.02_95)]">
               {isLive ? ">>> THE WEBINAR IS LIVE NOW <<<" : `WEBINAR STARTS IN — ${EVENT_DATE_LABEL}`}
             </p>

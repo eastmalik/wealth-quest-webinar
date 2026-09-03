@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { BOSS_CARDS, getEventDate, PROOF_COPY, PROOF_STAT } from "./event";
+import {
+  BOSS_CARDS,
+  getEventDate,
+  getEventSentence,
+  PROOF_COPY,
+  PROOF_STAT,
+} from "./event";
 
 describe("event content", () => {
   it("ships all four topic cards aligned to the Game Map levels", () => {
@@ -26,5 +32,10 @@ describe("event content", () => {
   it("resolves a valid future event date", () => {
     const d = getEventDate();
     expect(Number.isNaN(d.getTime())).toBe(false);
+  });
+
+  it("formats the plain-language event sentence from the shared date", () => {
+    const sentence = getEventSentence(new Date("2026-09-19T19:00:00-05:00"));
+    expect(sentence).toBe("Saturday, September 19 at 7:00 PM CT");
   });
 });

@@ -1,8 +1,10 @@
 import { ArenaFooter } from "@/components/ArenaFooter";
 import { ArenaHeader } from "@/components/ArenaHeader";
 import { BossesSection } from "@/components/BossesSection";
+import { ComparisonSection } from "@/components/ComparisonSection";
 import { HeroSection } from "@/components/HeroSection";
 import { HostSection } from "@/components/HostSection";
+import { LoadoutSection } from "@/components/LoadoutSection";
 import { ProofSection } from "@/components/ProofSection";
 import { RegistrationSection } from "@/components/RegistrationSection";
 import { TakeawaysSection } from "@/components/TakeawaysSection";
@@ -16,7 +18,9 @@ export default function Home() {
         <HeroSection />
         <TickerBar />
         <BossesSection />
+        <ComparisonSection />
         <TakeawaysSection />
+        <LoadoutSection />
         <HostSection />
         <ProofSection />
         <RegistrationSection />

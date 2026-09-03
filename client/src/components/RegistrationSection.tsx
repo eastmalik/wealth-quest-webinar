@@ -9,7 +9,7 @@ import {
   type RegistrationErrors,
 } from "@/lib/registration";
 import { motion } from "framer-motion";
-import { CheckCircle2, Gift, Loader2, Swords } from "lucide-react";
+import { CalendarPlus, CheckCircle2, Gift, Inbox, Loader2, MessageSquareText, Swords } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -18,15 +18,22 @@ export function RegistrationSection() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [smsConsent, setSmsConsent] = useState(false);
   const [errors, setErrors] = useState<RegistrationErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [serverError, setServerError] = useState("");
+  const [consentError, setConsentError] = useState("");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const payload = { firstName, email, phone };
     const validation = validateRegistration(payload);
     setErrors(validation);
+    if (!smsConsent) {
+      setConsentError("Please agree to SMS updates so we can send your ticket and reminders.");
+      return;
+    }
+    setConsentError("");
     if (!isValidRegistration(payload)) return;
 
     setStatus("submitting");
@@ -60,20 +67,51 @@ export function RegistrationSection() {
         >
           <div className="animate-gold-pulse border-2 border-[oklch(0.9_0.19_95)] bg-[oklch(0.14_0.01_95)] p-7 sm:p-10">
             {status === "success" ? (
-              <div className="py-6 text-center">
+              <div className="py-4 text-center">
                 <CheckCircle2 className="mx-auto size-14 text-[oklch(0.9_0.19_95)] drop-shadow-[0_0_16px_oklch(0.82_0.165_92/70%)]" />
                 <h2 className="mt-6 font-display text-base sm:text-lg leading-relaxed text-glow-gold">
                   TICKET CONFIRMED
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-[oklch(0.78_0.02_95)]">
-                  You're in the arena, {firstName.trim()}. Watch your inbox — your
-                  free <span className="text-[oklch(0.9_0.19_95)] font-semibold">Ultimate Budget Guide</span> is
-                  on its way so you can scan your inventory for leaks before the
-                  webinar starts.
+                  You're in, {firstName.trim()} — your seat is locked. Complete
+                  these three steps so you don't miss a thing:
                 </p>
-                <p className="mt-4 font-display text-[8px] leading-relaxed text-[oklch(0.65_0.02_95)]">
-                  SMS UPDATES → {phone.trim()}
-                </p>
+                <div className="mt-6 space-y-3 text-left">
+                  {[
+                    {
+                      icon: Inbox,
+                      title: "CHECK YOUR EMAIL",
+                      desc: "Your free Ultimate Budget Guide is on its way. Add us to your contacts so it doesn't land in spam.",
+                    },
+                    {
+                      icon: CalendarPlus,
+                      title: "ADD THE WEBINAR TO YOUR CALENDAR",
+                      desc: "Block the time now — the players who show up live get the most out of it.",
+                    },
+                    {
+                      icon: MessageSquareText,
+                      title: "SAVE OUR NUMBER",
+                      desc: `We'll text go-live alerts to ${phone.trim()} so you never miss the start.`,
+                    },
+                  ].map((step) => (
+                    <div
+                      key={step.title}
+                      className="flex items-start gap-3 border border-[oklch(0.82_0.165_92/35%)] bg-[oklch(0.11_0.008_95)] px-4 py-3"
+                    >
+                      <span className="mt-0.5 grid shrink-0 place-items-center size-7 border border-[oklch(0.9_0.19_95/60%)] bg-[oklch(0.82_0.165_92/12%)] text-[oklch(0.9_0.19_95)]">
+                        <step.icon className="size-4" strokeWidth={2} />
+                      </span>
+                      <div>
+                        <p className="font-display text-[8px] tracking-wider text-[oklch(0.9_0.19_95)]">
+                          {step.title}
+                        </p>
+                        <p className="mt-1 text-xs leading-relaxed text-[oklch(0.72_0.02_95)]">
+                          {step.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
               <>
@@ -154,6 +192,29 @@ export function RegistrationSection() {
                     />
                     {errors.phone && (
                       <p className="mt-1.5 text-xs text-[oklch(0.68_0.26_25)]">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="flex items-start gap-3 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={smsConsent}
+                        onChange={(e) => {
+                          setSmsConsent(e.target.checked);
+                          if (e.target.checked) setConsentError("");
+                        }}
+                        className="mt-0.5 size-4 shrink-0 accent-[oklch(0.82_0.165_92)]"
+                      />
+                      <span className="text-xs leading-relaxed text-[oklch(0.72_0.02_95)]">
+                        I agree to receive SMS messages about this webinar
+                        (ticket confirmation, reminders, and go-live alerts) at
+                        the number provided. Message & data rates may apply.
+                        Reply STOP anytime to opt out.
+                      </span>
+                    </label>
+                    {consentError && (
+                      <p className="mt-1.5 text-xs text-[oklch(0.68_0.26_25)]">{consentError}</p>
                     )}
                   </div>
 

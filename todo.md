@@ -65,3 +65,10 @@
 - [x] Apply user's visual edits round 3: remove all four "YOU'LL LEARN" card footers; rewrite Level 4 IUL copy ("reveal why I call it the Lifetime Line of Credit")
 - [x] Apply user's visual edits round 4: Level 4 tagline → "Grow your Money Tree"; final card → "Transfer of Wealth" / "Sit Under the Shade → The Generational Tree" with estate-planning copy
 - [x] Delete the "Choose Your Path / The Live Setlist" section (component, page usage, nav link, ACTS data, related test)
+- [x] Build "The Bank's Game vs The Flow" comparison section (red ✕ card vs gold ✓ card, RPG-themed)
+- [x] Upgrade registration confirmation state to a "Follow These Steps" quest-completion checklist (check email / add to calendar / save our number)
+- [x] Add SMS consent checkbox to the registration form (required before submit when phone provided)
+- [x] Add plain-language "We go live [day] at [time]" sentence near the countdown
+- [x] Build "Your Loadout" item cards section (Ultimate Budget Guide + registration perks as RPG loot cards)
+- [x] Derive the hero "We go live…" sentence from the shared event date (VITE_EVENT_DATE / event.ts) so it stays in sync with the countdown
+- [x] Add a test covering the plain-language event-date string formatting

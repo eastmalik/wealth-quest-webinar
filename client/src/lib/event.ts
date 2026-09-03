@@ -24,6 +24,31 @@ export function getEventDate(): Date {
 export const EVENT_DATE_LABEL = "SAT • SEP 19 • 7PM CT";
 
 /**
+ * Plain-language sentence for the hero, derived from the shared event date
+ * so it always matches the countdown target. Example:
+ * "Saturday, September 19 at 7:00 PM CT"
+ * Formatted in the event's timezone (America/Chicago) so visitors anywhere
+ * see the correct local-to-event time.
+ */
+export function getEventSentence(date: Date = getEventDate()): string {
+  const tz = "America/Chicago";
+  const weekday = date.toLocaleDateString("en-US", { weekday: "long", timeZone: tz });
+  const monthDay = date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    timeZone: tz,
+  });
+  const time = date
+    .toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: tz,
+    });
+  return `${weekday}, ${monthDay} at ${time} CT`;
+}
+
+/**
  * External registration endpoint. Point this at your marketing platform:
  * Formspree (https://formspree.io/f/xxxx), a Zapier/Make webhook,
  * ConvertKit form action, GoHighLevel webhook, etc.
