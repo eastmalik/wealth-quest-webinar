@@ -1,6 +1,6 @@
-import { HOST_BIO, HOST_QUOTE, HOST_STATS } from "@/lib/event";
+import { HOST_BIO, HOST_QUOTE } from "@/lib/event";
 import { motion } from "framer-motion";
-import { BadgeCheck, Music, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const PORTRAIT = "/manus-storage/malik-east-portrait_0b0a7323.webp";
 
@@ -10,10 +10,7 @@ export function HostSection() {
       <div className="absolute inset-0 arena-vignette pointer-events-none" />
       <div className="container relative">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
-            GUIDE PROFILE — ACTIVE
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
+          <h2 className="font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
             MEET YOUR HOST
           </h2>
         </div>
@@ -70,33 +67,6 @@ export function HostSection() {
               </p>
             </blockquote>
 
-            {/* Character stats grid */}
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              {HOST_STATS.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="border border-[oklch(0.82_0.165_92/30%)] bg-[oklch(0.14_0.01_95)] px-4 py-3"
-                >
-                  <p className="font-display text-[7px] sm:text-[8px] tracking-wider text-[oklch(0.65_0.02_95)]">
-                    {stat.label}
-                  </p>
-                  <p className="mt-1.5 font-heading text-xs sm:text-sm font-bold tracking-wide text-[oklch(0.9_0.19_95)]">
-                    {stat.value}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
-              <span className="flex items-center gap-2 font-heading text-[11px] tracking-[0.15em] text-[oklch(0.75_0.03_95)]">
-                <BadgeCheck className="size-4 text-[oklch(0.82_0.165_92)]" />
-                INDEPENDENT — MULTIPLE CARRIERS
-              </span>
-              <span className="flex items-center gap-2 font-heading text-[11px] tracking-[0.15em] text-[oklch(0.75_0.03_95)]">
-                <Music className="size-4 text-[oklch(0.82_0.165_92)]" />
-                FOUNDER — 7BAND FINANCIAL AGENCY
-              </span>
-            </div>
           </motion.div>
         </div>
       </div>

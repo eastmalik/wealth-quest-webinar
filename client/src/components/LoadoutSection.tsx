@@ -18,15 +18,15 @@ const LOOT = [
   },
   {
     icon: CalendarCheck,
-    name: "Your Seat at the Live Webinar",
+    name: "Live IUL Illustration",
     rarity: "CORE ITEM — 100% FREE",
-    desc: "A front-row ticket to the full live training on The Flow — credit restoration, legal setup, the Lifetime Line of Credit, and the transfer of wealth.",
+    desc: "A front-row seat to behind the scenes when it comes to Indexed Universal Life Insurance. Come find out what most misunderstand. Don't take my word for it — see it for yourself.",
   },
   {
     icon: MessageSquareText,
-    name: "Live SMS Updates",
-    rarity: "COMPANION PERK",
-    desc: "Reminders and go-live alerts straight to your phone, so you never miss the start. No spam — just the quest.",
+    name: "Access to Me",
+    rarity: "COMPANION PACK",
+    desc: "This isn't just a 1x thing — once you register and visit, we are family. I will be your personal guide through your journey.",
   },
 ];
 
@@ -62,15 +62,11 @@ export function LoadoutSection() {
     <section id="loadout" className="relative py-20 sm:py-24 bg-[oklch(0.13_0.01_95)]">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
-            EVERYTHING YOU GET TODAY
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
+          <h2 className="font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
             YOUR LOADOUT
           </h2>
           <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            Register free and this is what lands in your inventory — no charge,
-            no catch.
+            Resources you receive during and after the event.
           </p>
         </div>
 
@@ -105,7 +101,7 @@ export function LoadoutSection() {
         {/* Free guides from Arise Credit Pro */}
         <div className="mx-auto mt-14 max-w-4xl">
           <p className="text-center font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
-            BONUS LOOT — FREE GUIDES
+            MORE BONUS LOOT — FREE GUIDES
           </p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {GUIDES.map((guide, i) => (
