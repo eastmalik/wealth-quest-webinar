@@ -74,3 +74,4 @@
 - [x] Add a test covering the plain-language event-date string formatting
 - [x] Apply user's visual edits round 5: ticker renames (FIND YOUR FLOW / BUILD YOUR OWN DREAM / LIMITED SLOTS), remove countdown "WEBINAR STARTS IN" label, clean up emptied kicker/intro tags, comparison section renames
 - [x] Add Arise Credit Pro free resource guides (Consumer Law Reference Sheet, Credit Is Access Guide, Business Start-Up Guide) to the Loadout section with direct PDF links
+- [x] Add the Meta & Instagram Ads Setup Lab Guide as a fourth bonus loot card

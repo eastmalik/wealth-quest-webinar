@@ -7,6 +7,7 @@ import {
   MessageSquareText,
   Rocket,
   Scale,
+  Megaphone,
 } from "lucide-react";
 
 const LOOT = [
@@ -51,6 +52,13 @@ const GUIDES = [
     tag: "BUSINESS",
     desc: "Everything you need to launch your business the right way — from entity formation to building business credit and accessing capital.",
     url: "https://www.arisecreditpro.com/manus-storage/BusinessStartUpGuide_AriseCreditPro_39a880d8.pdf",
+  },
+  {
+    icon: Megaphone,
+    name: "Meta & Instagram Ads Setup Lab",
+    tag: "MARKETING",
+    desc: "A visual, step-by-step lab guide with pictures showing you exactly how to set up and run Meta and Instagram ad campaigns.",
+    url: "https://www.arisecreditpro.com/manus-storage/Meta_Instagram_Ads_MODERN_43d7937c.pdf",
   },
 ];
 
@@ -104,7 +112,7 @@ export function LoadoutSection() {
           <p className="text-center font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
             BONUS LOOT — FREE GUIDES FROM ARISE CREDIT PRO
           </p>
-          <div className="mt-6 grid gap-5 sm:grid-cols-3">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {GUIDES.map((guide, i) => (
               <motion.a
                 key={guide.name}
