@@ -5,7 +5,6 @@ import { ComparisonSection } from "@/components/ComparisonSection";
 import { HeroSection } from "@/components/HeroSection";
 import { HostSection } from "@/components/HostSection";
 import { LoadoutSection } from "@/components/LoadoutSection";
-import { ProofSection } from "@/components/ProofSection";
 import { RegistrationSection } from "@/components/RegistrationSection";
 import { TakeawaysSection } from "@/components/TakeawaysSection";
 import { TickerBar } from "@/components/TickerBar";
@@ -22,7 +21,6 @@ export default function Home() {
         <TakeawaysSection />
         <LoadoutSection />
         <HostSection />
-        <ProofSection />
         <RegistrationSection />
       </main>
       <ArenaFooter />

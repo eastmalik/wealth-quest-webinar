@@ -78,3 +78,4 @@
 - [x] Apply user's visual edits round 6: bonus loot header → "BONUS LOOT — FREE GUIDES", first card rarity → "BONUS LOOT", remove "DOWNLOAD FREE PDF" labels (clean up dangling icon)
 - [x] Convert the four guide cards from download links to static announcement cards (no outbound links, no download icon)
 - [x] Apply user's visual edits round 7: rewrite loot cards 2+3 (Live IUL Illustration / Access to Me), loadout intro copy, delete host stats grid + badge spans, clean up emptied kicker tags
+- [x] Remove the "Follow the Gold / Watch What They Buy" proof section (component, nav link, references)
