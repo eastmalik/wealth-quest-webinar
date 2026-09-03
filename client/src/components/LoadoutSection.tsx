@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   BookOpenCheck,
   CalendarCheck,
-  Download,
   KeyRound,
   MessageSquareText,
   Rocket,
@@ -14,7 +13,7 @@ const LOOT = [
   {
     icon: BookOpenCheck,
     name: "The Ultimate Budget Guide",
-    rarity: "FREE BONUS — UNLOCKED ON ENTRY",
+    rarity: "BONUS LOOT",
     desc: "Our cash-tracking playbook, sent to your inbox the moment you register — so you can scan your finances for leaks before the webinar starts.",
   },
   {
@@ -37,28 +36,24 @@ const GUIDES = [
     name: "Consumer Law Reference Sheet",
     tag: "CONSUMER LAW",
     desc: "Know your rights — a concise reference covering the FCRA, FDCPA, and ECOA, the federal laws that protect you when disputing credit and dealing with collectors.",
-    url: "https://www.arisecreditpro.com/manus-storage/legal_reference_sheet_456e0e97.pdf",
   },
   {
     icon: KeyRound,
     name: "Credit Is Access Guide",
     tag: "CREDIT ACCESS",
     desc: "Learn how to leverage your credit score to unlock funding, loans, and financial opportunities most people don't even know exist.",
-    url: "https://www.arisecreditpro.com/manus-storage/CreditIsAccess_AriseCreditPro_7dae5a51.pdf",
   },
   {
     icon: Rocket,
     name: "Business Start-Up Guide",
     tag: "BUSINESS",
     desc: "Everything you need to launch your business the right way — from entity formation to building business credit and accessing capital.",
-    url: "https://www.arisecreditpro.com/manus-storage/BusinessStartUpGuide_AriseCreditPro_39a880d8.pdf",
   },
   {
     icon: Megaphone,
     name: "Meta & Instagram Ads Setup Lab",
     tag: "MARKETING",
     desc: "A visual, step-by-step lab guide with pictures showing you exactly how to set up and run Meta and Instagram ad campaigns.",
-    url: "https://www.arisecreditpro.com/manus-storage/Meta_Instagram_Ads_MODERN_43d7937c.pdf",
   },
 ];
 
@@ -110,15 +105,12 @@ export function LoadoutSection() {
         {/* Free guides from Arise Credit Pro */}
         <div className="mx-auto mt-14 max-w-4xl">
           <p className="text-center font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
-            BONUS LOOT — FREE GUIDES FROM ARISE CREDIT PRO
+            BONUS LOOT — FREE GUIDES
           </p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {GUIDES.map((guide, i) => (
-              <motion.a
+              <motion.div
                 key={guide.name}
-                href={guide.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -139,11 +131,7 @@ export function LoadoutSection() {
                 <p className="mt-2 flex-1 text-xs leading-relaxed text-[oklch(0.72_0.02_95)]">
                   {guide.desc}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-2 font-display text-[8px] tracking-wider text-[oklch(0.9_0.19_95)] group-hover:text-glow-gold-soft transition">
-                  <Download className="size-3.5" />
-                  DOWNLOAD FREE PDF
-                </span>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </div>

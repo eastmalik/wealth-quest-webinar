@@ -75,3 +75,5 @@
 - [x] Apply user's visual edits round 5: ticker renames (FIND YOUR FLOW / BUILD YOUR OWN DREAM / LIMITED SLOTS), remove countdown "WEBINAR STARTS IN" label, clean up emptied kicker/intro tags, comparison section renames
 - [x] Add Arise Credit Pro free resource guides (Consumer Law Reference Sheet, Credit Is Access Guide, Business Start-Up Guide) to the Loadout section with direct PDF links
 - [x] Add the Meta & Instagram Ads Setup Lab Guide as a fourth bonus loot card
+- [x] Apply user's visual edits round 6: bonus loot header → "BONUS LOOT — FREE GUIDES", first card rarity → "BONUS LOOT", remove "DOWNLOAD FREE PDF" labels (clean up dangling icon)
+- [x] Convert the four guide cards from download links to static announcement cards (no outbound links, no download icon)
