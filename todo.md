@@ -64,3 +64,4 @@
 - [x] Apply user's visual edits round 2: intro → "walks you through The Flow…"; Level 2 LLC card copy rewritten (LLC/EIN/D.U.N.S)
 - [x] Apply user's visual edits round 3: remove all four "YOU'LL LEARN" card footers; rewrite Level 4 IUL copy ("reveal why I call it the Lifetime Line of Credit")
 - [x] Apply user's visual edits round 4: Level 4 tagline → "Grow your Money Tree"; final card → "Transfer of Wealth" / "Sit Under the Shade → The Generational Tree" with estate-planning copy
+- [x] Delete the "Choose Your Path / The Live Setlist" section (component, page usage, nav link, ACTS data, related test)

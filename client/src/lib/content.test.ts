@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ACTS, BOSS_CARDS, getEventDate, PROOF_COPY, PROOF_STAT } from "./event";
+import { BOSS_CARDS, getEventDate, PROOF_COPY, PROOF_STAT } from "./event";
 
 describe("event content", () => {
   it("ships all four topic cards aligned to the Game Map levels", () => {
@@ -15,16 +15,6 @@ describe("event content", () => {
       "LEVEL 2",
       "LEVEL 4",
       "LEVELS 5–7",
-    ]);
-  });
-
-  it("ships all four acts from the brief", () => {
-    expect(ACTS).toHaveLength(4);
-    expect(ACTS.map((a) => a.title)).toEqual([
-      "THE TUTORIAL",
-      "THE FOUNDATION CAMPAIGN",
-      "THE ACCELERATION",
-      "THE HIGH SCORE",
     ]);
   });
 

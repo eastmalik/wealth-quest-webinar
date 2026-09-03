@@ -77,49 +77,6 @@ export const BOSS_CARDS: BossCard[] = [
   },
 ];
 
-export interface Act {
-  id: string;
-  act: string;
-  title: string;
-  tagline: string;
-  copy: string;
-}
-
-export const ACTS: Act[] = [
-  {
-    id: "act-1",
-    act: "ACT I",
-    title: "THE TUTORIAL",
-    tagline: "Get Yo Mind Right!",
-    copy:
-      "Malik East takes the stage to drop the mindset shifts that changed his life. You'll learn how to run the Efficiency Scan to find where the banks are quietly siphoning 86% of your mortgage payments as interest.",
-  },
-  {
-    id: "act-2",
-    act: "ACT II",
-    title: "THE FOUNDATION CAMPAIGN",
-    tagline: "Levels 1–3",
-    copy:
-      "How to restore your Credit Shield using automation tools. We'll show you how to structure an LLC to build a \"Business Credit Firewall\" that keeps your borrowing power off your personal credit report.",
-  },
-  {
-    id: "act-3",
-    act: "ACT III",
-    title: "THE ACCELERATION",
-    tagline: "Level 4 Engine",
-    copy:
-      "Unveiling the Lifetime Line of Credit. We will show you the exact policy design that lets your money do two jobs at once—compounding safely at market-linked rates while acting as liquid collateral to fund business and real estate deals simultaneously.",
-  },
-  {
-    id: "act-4",
-    act: "ACT IV",
-    title: "THE HIGH SCORE",
-    tagline: "The Family Bank",
-    copy:
-      "How to legally separate yourself from your assets using Trusts so your wealth bypasses probate and transfers 100% tax-free, ensuring your family bank never resets to zero.",
-  },
-];
-
 export const PROOF_STAT = "$205.7 BILLION";
 export const PROOF_COPY =
   "As of late 2024, FDIC filings show that U.S. banks hold $205.7 Billion of safe cash value in permanent life insurance as their liquid reserve. They count it as a reserve because they can borrow against it on demand while the balance keeps compounding. Stop renting their capital. It's time to build your own vault.";
