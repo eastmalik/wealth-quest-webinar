@@ -2,7 +2,7 @@ import { EVENT_DATE_LABEL } from "@/lib/event";
 import { Gamepad2, Ticket } from "lucide-react";
 
 const NAV = [
-  { href: "#stakes", label: "THE BOSSES" },
+  { href: "#stakes", label: "ABOUT" },
   { href: "#host", label: "YOUR HOST" },
   { href: "#register", label: "GET TICKET" },
 ];

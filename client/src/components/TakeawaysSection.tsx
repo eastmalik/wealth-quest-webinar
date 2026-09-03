@@ -8,12 +8,8 @@ export function TakeawaysSection() {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
-            WHAT YOU'LL WALK AWAY WITH
+            WHAT YOU'LL WALK AWAY WITH KNOWING
           </h2>
-          <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            Five concrete plays from the live training — no fluff, no theory
-            you'll never use.
-          </p>
         </div>
 
         <div className="mx-auto mt-12 max-w-3xl space-y-4">
