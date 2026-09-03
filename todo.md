@@ -72,3 +72,4 @@
 - [x] Build "Your Loadout" item cards section (Ultimate Budget Guide + registration perks as RPG loot cards)
 - [x] Derive the hero "We go live…" sentence from the shared event date (VITE_EVENT_DATE / event.ts) so it stays in sync with the countdown
 - [x] Add a test covering the plain-language event-date string formatting
+- [x] Apply user's visual edits round 5: ticker renames (FIND YOUR FLOW / BUILD YOUR OWN DREAM / LIMITED SLOTS), remove countdown "WEBINAR STARTS IN" label, clean up emptied kicker/intro tags, comparison section renames

@@ -23,15 +23,11 @@ export function ComparisonSection() {
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
-            TWO WAYS TO PLAY
+            TWO DIFFERENT PERSPECTIVES
           </p>
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
-            THE BANK'S GAME vs THE FLOW
+            THE BANK'S GAME vs YOUR OWN FLOW
           </h2>
-          <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            Same money. Same hours. Two completely different endings. Here's
-            the honest side-by-side.
-          </p>
         </div>
 
         <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-2">
@@ -84,7 +80,7 @@ export function ComparisonSection() {
               THE FLOW
             </p>
             <p className="mt-2 font-heading text-xs tracking-[0.2em] text-[oklch(0.75_0.06_92)]">
-              THE WAY YOU'LL LEARN LIVE
+              THE WAY YOU'LL LEARN
             </p>
             <ul className="mt-6 space-y-4">
               {NEW_WAY.map((item, i) => (
@@ -119,7 +115,7 @@ export function ComparisonSection() {
             href="#register"
             className="animate-gold-pulse inline-flex items-center justify-center gap-3 bg-[oklch(0.82_0.165_92)] px-8 py-4 font-display text-[11px] sm:text-xs leading-relaxed text-[oklch(0.14_0.02_95)] border-2 border-[oklch(0.9_0.19_95)] hover:bg-[oklch(0.9_0.19_95)] active:translate-y-0.5 transition"
           >
-            SWITCH TO THE FLOW — REGISTER FREE
+            REGISTER TODAY
           </a>
         </motion.div>
       </div>

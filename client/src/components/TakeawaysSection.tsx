@@ -7,9 +7,6 @@ export function TakeawaysSection() {
     <section id="takeaways" className="relative py-20 sm:py-24">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">
-            LOOT PREVIEW
-          </p>
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
             WHAT YOU'LL WALK AWAY WITH
           </h2>

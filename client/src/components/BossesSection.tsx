@@ -14,16 +14,9 @@ export function BossesSection() {
     <section id="stakes" className="relative py-20 sm:py-28">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.68_0.26_25)]">
-            FROM THE 7-LEVEL GENERATIONAL WEALTH BLUEPRINT
-          </p>
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
             WHAT THIS WEBINAR COVERS
           </h2>
-          <p className="mt-4 text-[oklch(0.78_0.02_95)] leading-relaxed">
-            This live webinar walks you through The Flow. Here is exactly
-            which levels we cover and what you'll learn at each one.
-          </p>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">

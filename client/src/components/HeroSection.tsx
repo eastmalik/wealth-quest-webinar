@@ -1,5 +1,5 @@
 import { useCountdown, pad2 } from "@/hooks/useCountdown";
-import { EVENT_DATE_LABEL, getEventDate, getEventSentence } from "@/lib/event";
+import { getEventDate, getEventSentence } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
 
@@ -160,7 +160,7 @@ export function HeroSection() {
             </span>
             <span className="hidden sm:inline text-[oklch(0.82_0.165_92/60%)]">|</span>
             <span className="font-heading text-[11px] sm:text-xs tracking-[0.18em] text-[oklch(0.68_0.26_25)]">
-              LIMITED VIEWER SLOTS
+              LIMITED SLOTS
             </span>
           </div>
 
@@ -195,9 +195,11 @@ export function HeroSection() {
                 {getEventSentence()}
               </span>
             </p>
-            <p className="mb-3 font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.65_0.02_95)]">
-              {isLive ? ">>> THE WEBINAR IS LIVE NOW <<<" : `WEBINAR STARTS IN — ${EVENT_DATE_LABEL}`}
-            </p>
+            {isLive && (
+              <p className="mb-3 font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.65_0.02_95)]">
+                {">>> THE WEBINAR IS LIVE NOW <<<"}
+              </p>
+            )}
             <div className="flex items-start justify-center lg:justify-start gap-1.5 sm:gap-4">
               <TimeCell value={pad2(days)} label="DAYS" />
               <span className="pt-3 sm:pt-4 font-display text-lg sm:text-3xl text-[oklch(0.82_0.165_92/70%)]">:</span>
