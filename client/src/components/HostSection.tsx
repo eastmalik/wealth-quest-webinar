@@ -2,7 +2,7 @@ import { HOST_BIO, HOST_QUOTE } from "@/lib/event";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
-const PORTRAIT = "/manus-storage/malik-east-portrait_0b0a7323.webp";
+const PORTRAIT = "/media/malik-east-portrait.webp";
 
 export function HostSection() {
   return (

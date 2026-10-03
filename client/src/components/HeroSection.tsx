@@ -1,11 +1,11 @@
-import { useCountdown, pad2 } from "@/hooks/useCountdown";
+import { computeCountdown, useNow, pad2 } from "@/hooks/useCountdown";
 import { getEventDate, getEventSentence } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
 
-const STAGE_VIDEO = "/manus-storage/hero-live-feed_61bd8494.mp4";
-const STAGE_POSTER = "/manus-storage/hero-live-feed-poster_3ea209b3.jpg";
-const ARENA_BG = "/manus-storage/arena-bg_aebd8084.png";
+const STAGE_VIDEO = "/media/hero-live-feed.mp4";
+const STAGE_POSTER = "/media/hero-live-feed-poster.jpg";
+const ARENA_BG = "/media/arena-bg.webp";
 
 const PARTICLES = [
   { left: "12%", size: 3, duration: "6.5s", delay: "0s" },
@@ -106,7 +106,7 @@ function StageVisual() {
               MALIK EAST
             </p>
             <p className="mt-1 font-heading text-[9px] sm:text-[10px] tracking-[0.2em] text-[oklch(0.75_0.03_95)]">
-              HOST • BUSINESS CONSULTANT & ASSET PROTECTION SPECIALIST
+              HOST • LICENSED LIFE INSURANCE AGENT
             </p>
       </div>
     </div>
@@ -129,8 +129,9 @@ function TimeCell({ value, label }: { value: string; label: string }) {
 }
 
 export function HeroSection() {
-  const eventDate = getEventDate();
-  const { days, hours, minutes, seconds, isLive } = useCountdown(eventDate);
+  const now = useNow();
+  const eventDate = getEventDate(new Date(now));
+  const { days, hours, minutes, seconds, isLive } = computeCountdown(eventDate, now);
 
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:min-h-screen lg:flex lg:items-center">
@@ -160,31 +161,28 @@ export function HeroSection() {
             </span>
             <span className="hidden sm:inline text-[oklch(0.82_0.165_92/60%)]">|</span>
             <span className="font-heading text-[11px] sm:text-xs tracking-[0.18em] text-[oklch(0.68_0.26_25)]">
-              LIMITED SLOTS
+              FREE • EVERY SATURDAY
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(1.15rem,4.2vw,2.9rem)] leading-[1.45] text-[oklch(0.95_0.02_95)]">
-            THE GREAT
-            <br />
-            GENERATIONAL
-            <br />
-            <span className="text-glow-gold animate-flicker">WEALTH JOURNEY</span>
+          <p className="font-heading text-xs sm:text-sm tracking-[0.35em] text-[oklch(0.82_0.165_92)]">
+            THE GENERATIONAL WEALTH QUEST
+          </p>
+          <h1 className="mt-3 font-display text-[clamp(2rem,7vw,4rem)] leading-[1.2] text-glow-gold animate-flicker">
+            THE FLOW
           </h1>
-          <p className="mt-3 font-heading text-sm sm:text-base tracking-[0.35em] text-[oklch(0.82_0.165_92)]">
-            LIVE WEBINAR
+          <p className="mt-4 font-heading text-base sm:text-lg italic tracking-wide text-[oklch(0.9_0.06_92)]">
+            The 7 levels every family needs — in the order that actually works.
           </p>
 
           <p className="mt-6 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed text-[oklch(0.78_0.02_95)]">
-            Our mission is simple: equip entrepreneurs, professionals, and
-            families with the exact systems high-net-worth families have used
-            for generations — the same tools the wealthy use to protect, grow,
-            and pass down what they build. This webinar is for the people who{" "}
+            You're not bad with money — nobody handed you the map. Wealthy
+            families pass down a sequence, not just money. In this free live
+            webinar, Malik East hands you that map, including the parts most
+            people leave out: the costs, the risks, and who it isn't for.{" "}
             <span className="text-[oklch(0.9_0.19_95)] font-semibold">
-              do not have it all together
+              The Flow is for the ones who don't have it all together.
             </span>
-            . If that's you, claim your seat. If not, no hard feelings — this
-            isn't for you.
           </p>
 
           {/* Countdown */}
@@ -192,7 +190,7 @@ export function HeroSection() {
             <p className="mb-2 font-heading text-sm sm:text-base tracking-wide text-[oklch(0.85_0.03_95)]">
               We go live{" "}
               <span className="text-[oklch(0.9_0.19_95)] font-semibold">
-                {getEventSentence()}
+                {getEventSentence(eventDate)}
               </span>
             </p>
             {isLive && (

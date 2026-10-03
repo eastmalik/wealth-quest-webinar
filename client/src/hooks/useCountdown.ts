@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export interface CountdownParts {
   days: number;
@@ -22,8 +22,8 @@ export function computeCountdown(target: Date, now: number): CountdownParts {
   return { days, hours, minutes, seconds, isLive: false, totalMs };
 }
 
-export function useCountdown(target: Date): CountdownParts {
-  const targetTime = useMemo(() => target.getTime(), [target]);
+/** The current time, updated every second. */
+export function useNow(): number {
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
@@ -31,10 +31,7 @@ export function useCountdown(target: Date): CountdownParts {
     return () => window.clearInterval(id);
   }, []);
 
-  return useMemo(
-    () => computeCountdown(new Date(targetTime), now),
-    [targetTime, now]
-  );
+  return now;
 }
 
 export function pad2(n: number): string {
