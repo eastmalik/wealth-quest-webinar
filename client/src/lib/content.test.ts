@@ -3,30 +3,24 @@ import {
   BOSS_CARDS,
   getEventDate,
   getEventSentence,
-  PROOF_COPY,
-  PROOF_STAT,
+  TAKEAWAYS,
 } from "./event";
 
 describe("event content", () => {
-  it("ships all four topic cards aligned to the Game Map levels", () => {
-    expect(BOSS_CARDS).toHaveLength(4);
+  it("ships the deck's three secrets plus the legacy levels", () => {
     expect(BOSS_CARDS.map((b) => b.boss)).toEqual([
-      "Credit Restoration",
-      "LLC Structuring",
-      "IUL / Lifetime LOC",
-      "Transfer of Wealth",
-    ]);
-    expect(BOSS_CARDS.map((b) => b.level)).toEqual([
-      "LEVEL 1",
-      "LEVEL 2",
-      "LEVEL 4",
-      "LEVELS 5–7",
+      "The Order",
+      "The Foundation",
+      "The Engine",
+      "The Legacy",
     ]);
   });
 
-  it("keeps the FDIC proof statistic", () => {
-    expect(PROOF_STAT).toContain("205.7");
-    expect(PROOF_COPY).toContain("FDIC");
+  it("keeps claims the webinar does not make off the page", () => {
+    const copy = [...BOSS_CARDS.map((b) => b.copy), ...TAKEAWAYS].join(" ");
+    for (const banned of ["100% tax-free", "86%", "safely", "Lifetime Line of Credit", "205.7", "banks start saying yes"]) {
+      expect(copy).not.toContain(banned);
+    }
   });
 
   it("resolves a valid future event date", () => {

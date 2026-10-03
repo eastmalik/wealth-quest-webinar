@@ -17,7 +17,7 @@ export function ArenaHeader() {
           </span>
           <span className="leading-tight">
             <span className="block font-display text-[9px] sm:text-[10px] text-[oklch(0.9_0.19_95)] tracking-wider group-hover:text-glow-gold transition">
-              WEALTH JOURNEY
+              THE FLOW
             </span>
             <span className="block font-heading text-[10px] sm:text-xs text-[oklch(0.65_0.02_95)] tracking-[0.25em]">
               LIVE WEBINAR

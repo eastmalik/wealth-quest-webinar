@@ -78,7 +78,7 @@ export async function submitRegistration(
     smsConsent,
     smsConsentText: SMS_CONSENT_TEXT,
     smsConsentAt: smsConsent ? submittedAt : null,
-    event: "The Great Generational Wealth Journey: Live Webinar",
+    event: "THE FLOW — The Generational Wealth Quest (Live Webinar)",
     source: "webinar-registration-page",
     pageUrl: typeof window === "undefined" ? "" : window.location.href,
     submittedAt,

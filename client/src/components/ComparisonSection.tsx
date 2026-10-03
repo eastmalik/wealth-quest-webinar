@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const OLD_WAY = [
-  "Park your money in checking at ~0.01% while inflation eats the rest",
-  "Banks lend your deposits back out at up to 22% — and keep the spread",
-  "Bad credit locks you out of cards, loans, and funding entirely",
-  "An LLC and EIN alone leave your assets exposed to one bad lawsuit",
-  "No estate plan means probate court — and your kids restart from zero",
+  "No budgeting system — you don't know where the money goes",
+  "No strong credit profile — every loan costs you more",
+  "No business structure — business risk lands on you personally",
+  "No generational plan — what you build ends with you",
+  "Starting in the middle — a policy you can't keep funding, a trust with nothing in it",
 ];
 
 const NEW_WAY = [
-  "Run a simple budgeting system that plugs the leaks every month",
-  "Restore your credit profile so banks start saying yes",
-  "Set up your business legally — the right documents, done right",
-  "Put your money to work with the Lifetime Line of Credit engine",
-  "Transfer the map and the knowledge so your Family Bank never resets",
+  "Track your income and expenses every month and stop the leaks",
+  "Understand your credit file and what the law lets you challenge",
+  "Put structure in place first — borrow to build assets, never to cover bills",
+  "Learn how protection and growth work, including the costs and when they don't fit",
+  "Choose beneficiaries on purpose and plan your estate with an attorney",
 ];
 
 export function ComparisonSection() {
@@ -26,7 +26,7 @@ export function ComparisonSection() {
             TWO DIFFERENT PERSPECTIVES
           </p>
           <h2 className="mt-4 font-display text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.5] text-glow-gold">
-            THE BANK'S GAME vs YOUR OWN FLOW
+            STARTING IN THE MIDDLE vs THE FLOW
           </h2>
         </div>
 
@@ -41,10 +41,10 @@ export function ComparisonSection() {
           >
             <p className="flex items-center gap-2 font-display text-[10px] sm:text-xs text-[oklch(0.68_0.26_25)]">
               <X className="size-4" strokeWidth={3} />
-              THE BANK'S GAME
+              STARTING IN THE MIDDLE
             </p>
             <p className="mt-2 font-heading text-xs tracking-[0.2em] text-[oklch(0.6_0.05_25)]">
-              THE OLD FRUSTRATING WAY
+              WHY TRUE WEALTH STAYS LOCKED
             </p>
             <ul className="mt-6 space-y-4">
               {OLD_WAY.map((item, i) => (
@@ -80,7 +80,7 @@ export function ComparisonSection() {
               THE FLOW
             </p>
             <p className="mt-2 font-heading text-xs tracking-[0.2em] text-[oklch(0.75_0.06_92)]">
-              THE WAY YOU'LL LEARN
+              THE RIGHT ORDER
             </p>
             <ul className="mt-6 space-y-4">
               {NEW_WAY.map((item, i) => (

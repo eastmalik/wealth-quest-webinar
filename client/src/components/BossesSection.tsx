@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { Shield, Building2, Cog, TreePine, Skull } from "lucide-react";
 
 const ICONS: Record<string, typeof Shield> = {
-  "credit-optimization": Shield,
-  "llc-structuring": Building2,
-  "lifetime-loc": Cog,
-  "generational-transfer": TreePine,
+  "the-order": Building2,
+  "the-foundation": Shield,
+  "the-engine": Cog,
+  "the-legacy": TreePine,
 };
 
 export function BossesSection() {

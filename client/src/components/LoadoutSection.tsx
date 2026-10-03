@@ -18,9 +18,9 @@ const LOOT = [
   },
   {
     icon: CalendarCheck,
-    name: "Live IUL Illustration",
-    rarity: "CORE ITEM — 100% FREE",
-    desc: "A front-row seat to behind the scenes when it comes to Indexed Universal Life Insurance. Come find out what most misunderstand. Don't take my word for it — see it for yourself.",
+    name: "Live Demo: How I Read a File",
+    rarity: "CORE ITEM — LIVE ON THE WEBINAR",
+    desc: "Watch a sample, fully redacted credit report get read live — every item labelled verifiable, unverifiable, inaccurate, or accurate and staying. Don't take my word for it — see it for yourself.",
   },
   {
     icon: MessageSquareText,
@@ -41,7 +41,7 @@ const GUIDES = [
     icon: KeyRound,
     name: "Credit Is Access Guide",
     tag: "CREDIT ACCESS",
-    desc: "Learn how to leverage your credit score to unlock funding, loans, and financial opportunities most people don't even know exist.",
+    desc: "How lenders read your credit file, and why a weak file means higher interest, bigger deposits and fewer options when you need them most.",
   },
   {
     icon: Rocket,
