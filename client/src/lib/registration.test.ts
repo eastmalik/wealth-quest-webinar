@@ -1,6 +1,8 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   isValidRegistration,
+  SMS_CONSENT_TEXT,
+  submitRegistration,
   validateRegistration,
 } from "./registration";
 
@@ -61,5 +63,56 @@ describe("validateRegistration", () => {
     expect(
       isValidRegistration({ firstName: "", email: "", phone: "" })
     ).toBe(false);
+  });
+});
+
+describe("submitRegistration", () => {
+  const payload = {
+    firstName: " Malik ",
+    email: "malik@example.com",
+    phone: "(555) 555-5555",
+  };
+  const endpoint = "https://example.com/hook";
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("fails visibly when no endpoint is configured, and sends nothing", async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    const result = await submitRegistration(payload, true, "");
+    expect(result.ok).toBe(false);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("posts the registration with the consent wording and reports success", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", fetchMock);
+    const result = await submitRegistration(payload, true, endpoint);
+    expect(result).toEqual({ ok: true });
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe(endpoint);
+    const body = JSON.parse(init.body);
+    expect(body).toMatchObject({
+      firstName: "Malik",
+      email: "malik@example.com",
+      phone: "(555) 555-5555",
+      smsConsent: true,
+      smsConsentText: SMS_CONSENT_TEXT,
+    });
+    expect(body.smsConsentAt).toBe(body.submittedAt);
+  });
+
+  it("reports an error when the endpoint rejects the request", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false, status: 500 }));
+    const result = await submitRegistration(payload, true, endpoint);
+    expect(result.ok).toBe(false);
+  });
+
+  it("reports an error when the network request fails", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("Failed to fetch")));
+    const result = await submitRegistration(payload, true, endpoint);
+    expect(result.ok).toBe(false);
   });
 });

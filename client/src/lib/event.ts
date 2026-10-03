@@ -49,11 +49,9 @@ export function getEventSentence(date: Date = getEventDate()): string {
 }
 
 /**
- * External registration endpoint. Point this at your marketing platform:
- * Formspree (https://formspree.io/f/xxxx), a Zapier/Make webhook,
- * ConvertKit form action, GoHighLevel webhook, etc.
- * When empty, the form stores registrations locally and shows the
- * confirmed-ticket state so the page is fully demoable.
+ * Registration endpoint: the GoHighLevel inbound-webhook URL, set as
+ * VITE_REGISTRATION_ENDPOINT at build time. When empty, the form shows an
+ * error instead of pretending the registration went through.
  */
 export function getRegistrationEndpoint(): string {
   return (import.meta.env.VITE_REGISTRATION_ENDPOINT as string | undefined) ?? "";

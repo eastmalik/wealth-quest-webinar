@@ -41,39 +41,48 @@ export function isValidRegistration(p: RegistrationPayload): boolean {
   return Object.keys(validateRegistration(p)).length === 0;
 }
 
-export type SubmitResult =
-  | { ok: true; delivered: "endpoint" | "local" }
-  | { ok: false; error: string };
+/**
+ * The exact SMS consent wording shown next to the checkbox. It is sent to
+ * GoHighLevel with every registration so the consent on record matches what
+ * the visitor agreed to. Change it here and both stay in step.
+ */
+export const SMS_CONSENT_TEXT =
+  "I agree to receive SMS messages about this webinar (ticket confirmation, " +
+  "reminders, and go-live alerts) at the number provided. Message & data " +
+  "rates may apply. Reply STOP anytime to opt out.";
+
+export type SubmitResult = { ok: true } | { ok: false; error: string };
+
+const NOT_CONFIGURED_ERROR =
+  "Registration is temporarily unavailable. Please try again shortly.";
 
 /**
- * Posts the registration to the configured external endpoint
- * (Formspree / Zapier / ConvertKit / GHL webhook). When no endpoint is
- * configured, persists locally so the flow is demoable end-to-end.
+ * Posts the registration to the configured endpoint (a GoHighLevel inbound
+ * webhook). There is deliberately no fallback: if the endpoint is missing or
+ * the request fails, the visitor sees an error rather than a false success.
  */
 export async function submitRegistration(
   payload: RegistrationPayload,
+  smsConsent: boolean,
   endpoint: string
 ): Promise<SubmitResult> {
+  if (!endpoint) {
+    return { ok: false, error: NOT_CONFIGURED_ERROR };
+  }
+
+  const submittedAt = new Date().toISOString();
   const record = {
     firstName: payload.firstName.trim(),
     email: payload.email.trim(),
     phone: payload.phone.trim(),
+    smsConsent,
+    smsConsentText: SMS_CONSENT_TEXT,
+    smsConsentAt: smsConsent ? submittedAt : null,
     event: "The Great Generational Wealth Journey: Live Webinar",
     source: "webinar-registration-page",
-    submittedAt: new Date().toISOString(),
+    pageUrl: typeof window === "undefined" ? "" : window.location.href,
+    submittedAt,
   };
-
-  if (!endpoint) {
-    try {
-      const key = "gwq_registrations";
-      const existing = JSON.parse(window.localStorage.getItem(key) ?? "[]");
-      existing.push(record);
-      window.localStorage.setItem(key, JSON.stringify(existing));
-      return { ok: true, delivered: "local" };
-    } catch {
-      return { ok: false, error: "Could not save your ticket locally. Please try again." };
-    }
-  }
 
   try {
     const res = await fetch(endpoint, {
@@ -84,7 +93,7 @@ export async function submitRegistration(
     if (!res.ok) {
       return { ok: false, error: `Registration failed (${res.status}). Please try again.` };
     }
-    return { ok: true, delivered: "endpoint" };
+    return { ok: true };
   } catch {
     return { ok: false, error: "Network error — check your connection and try again." };
   }

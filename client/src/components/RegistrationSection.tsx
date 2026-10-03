@@ -4,6 +4,7 @@ import {
 } from "@/lib/event";
 import {
   isValidRegistration,
+  SMS_CONSENT_TEXT,
   submitRegistration,
   validateRegistration,
   type RegistrationErrors,
@@ -38,7 +39,7 @@ export function RegistrationSection() {
 
     setStatus("submitting");
     setServerError("");
-    const result = await submitRegistration(payload, getRegistrationEndpoint());
+    const result = await submitRegistration(payload, smsConsent, getRegistrationEndpoint());
     if (result.ok) {
       setStatus("success");
     } else {
@@ -207,10 +208,7 @@ export function RegistrationSection() {
                         className="mt-0.5 size-4 shrink-0 accent-[oklch(0.82_0.165_92)]"
                       />
                       <span className="text-xs leading-relaxed text-[oklch(0.72_0.02_95)]">
-                        I agree to receive SMS messages about this webinar
-                        (ticket confirmation, reminders, and go-live alerts) at
-                        the number provided. Message & data rates may apply.
-                        Reply STOP anytime to opt out.
+                        {SMS_CONSENT_TEXT}
                       </span>
                     </label>
                     {consentError && (

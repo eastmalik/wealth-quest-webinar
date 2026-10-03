@@ -18,7 +18,7 @@ export const EVENT_DATE_LABEL = "SAT • SEP 19 • 7PM CT";  // ← label shown
 ```
 Or set the `VITE_EVENT_DATE` environment variable (Settings → Secrets) to override without code changes.
 
-**Registration endpoint (where leads go)** — the form posts JSON `{ firstName, email, phone, event, source, submittedAt }` to the URL in `VITE_REGISTRATION_ENDPOINT` (Settings → Secrets). Works with Formspree, Zapier/Make webhooks, ConvertKit, GoHighLevel, etc. **Until you set it, the form runs in demo mode**: it validates, shows the confirmed-ticket state, and stores submissions in the browser's localStorage under the `gwq_registrations` key.
+**Registration endpoint (where leads go)** — the form posts JSON `{ firstName, email, phone, smsConsent, smsConsentText, smsConsentAt, event, source, pageUrl, submittedAt }` to the GoHighLevel inbound-webhook URL in `VITE_REGISTRATION_ENDPOINT`. **If it is not set, or the request fails, the visitor sees an error** — there is no local fallback, so no signup is ever silently lost.
 
 **Copy (bosses, acts, proof stat)** — all in `client/src/lib/event.ts` (`BOSS_CARDS`, `ACTS`, `PROOF_STAT`, `PROOF_COPY`).
 
