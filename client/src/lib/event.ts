@@ -1,6 +1,6 @@
 /**
  * Central event configuration for The Great Generational Wealth Journey: Live Webinar.
- * Update EVENT_DATE_ISO to change the countdown target.
+ * Change WEEKLY_SCHEDULE to change when the webinar runs.
  */
 
 export const EVENT_TITLE = "The Great Generational Wealth Journey";
@@ -8,20 +8,90 @@ export const EVENT_SUBTITLE = "Live Webinar";
 export const HOST_NAME = "Malik East";
 
 /**
- * Countdown target for the live webinar.
- * Defaults to a fixed upcoming broadcast date; override with
- * VITE_EVENT_DATE (ISO 8601, e.g. "2026-09-19T19:00:00-05:00").
+ * The webinar runs every week. Change the day and time here; the countdown,
+ * the header label and the hero sentence all follow it.
+ * weekday: 0 = Sunday … 6 = Saturday. hour is 24-hour, Central time.
  */
-const FALLBACK_EVENT_DATE = "2026-09-19T19:00:00-05:00";
+export const WEEKLY_SCHEDULE = {
+  weekday: 6,
+  hour: 19,
+  minute: 0,
+  durationMinutes: 90,
+} as const;
 
-export function getEventDate(): Date {
-  const fromEnv = import.meta.env.VITE_EVENT_DATE as string | undefined;
-  const candidate = fromEnv && fromEnv.trim().length > 0 ? fromEnv : FALLBACK_EVENT_DATE;
-  const parsed = new Date(candidate);
-  return Number.isNaN(parsed.getTime()) ? new Date(FALLBACK_EVENT_DATE) : parsed;
+export const EVENT_TIME_ZONE = "America/Chicago";
+
+const DAY_MS = 86_400_000;
+
+/** Wall-clock parts of `date` in the event's time zone. */
+function zonedParts(date: Date) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: EVENT_TIME_ZONE,
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hourCycle: "h23",
+    weekday: "short",
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+  return {
+    year: Number(get("year")),
+    month: Number(get("month")),
+    day: Number(get("day")),
+    hour: Number(get("hour")),
+    minute: Number(get("minute")),
+    second: Number(get("second")),
+    weekday: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday")),
+  };
 }
 
-export const EVENT_DATE_LABEL = "SAT • SEP 19 • 7PM CT";
+/** The instant a Central-time wall-clock time happens, DST included. */
+function zonedTimeToUtc(year: number, month: number, day: number, hour: number, minute: number): Date {
+  const wall = Date.UTC(year, month - 1, day, hour, minute);
+  let guess = wall;
+  for (let i = 0; i < 2; i++) {
+    const p = zonedParts(new Date(guess));
+    const seen = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+    guess += wall - seen;
+  }
+  return new Date(guess);
+}
+
+/**
+ * Start of the session to count down to: the one in progress (until its
+ * window closes), otherwise the next one.
+ */
+export function getEventDate(now: Date = new Date()): Date {
+  const today = zonedParts(now);
+  const ahead = (WEEKLY_SCHEDULE.weekday - today.weekday + 7) % 7;
+  for (const offset of [ahead - 7, ahead, ahead + 7]) {
+    const d = new Date(Date.UTC(today.year, today.month - 1, today.day) + offset * DAY_MS);
+    const start = zonedTimeToUtc(
+      d.getUTCFullYear(),
+      d.getUTCMonth() + 1,
+      d.getUTCDate(),
+      WEEKLY_SCHEDULE.hour,
+      WEEKLY_SCHEDULE.minute
+    );
+    if (now.getTime() < start.getTime() + WEEKLY_SCHEDULE.durationMinutes * 60_000) {
+      return start;
+    }
+  }
+  throw new Error("unreachable: a weekly session always falls within two weeks");
+}
+
+/** Header label, e.g. "SAT • OCT 3 • 7PM CT". */
+export function getEventDateLabel(date: Date = getEventDate()): string {
+  const fmt = (o: Intl.DateTimeFormatOptions) =>
+    date.toLocaleString("en-US", { ...o, timeZone: EVENT_TIME_ZONE });
+  const time = fmt({ hour: "numeric", minute: "2-digit", hour12: true })
+    .replace(":00", "")
+    .replace(" ", "");
+  return `${fmt({ weekday: "short" })} • ${fmt({ month: "short" })} ${fmt({ day: "numeric" })} • ${time} CT`.toUpperCase();
+}
 
 /**
  * Plain-language sentence for the hero, derived from the shared event date
@@ -31,7 +101,7 @@ export const EVENT_DATE_LABEL = "SAT • SEP 19 • 7PM CT";
  * see the correct local-to-event time.
  */
 export function getEventSentence(date: Date = getEventDate()): string {
-  const tz = "America/Chicago";
+  const tz = EVENT_TIME_ZONE;
   const weekday = date.toLocaleDateString("en-US", { weekday: "long", timeZone: tz });
   const monthDay = date.toLocaleDateString("en-US", {
     month: "long",

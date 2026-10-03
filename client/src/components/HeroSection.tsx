@@ -1,4 +1,4 @@
-import { useCountdown, pad2 } from "@/hooks/useCountdown";
+import { computeCountdown, useNow, pad2 } from "@/hooks/useCountdown";
 import { getEventDate, getEventSentence } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
@@ -129,8 +129,9 @@ function TimeCell({ value, label }: { value: string; label: string }) {
 }
 
 export function HeroSection() {
-  const eventDate = getEventDate();
-  const { days, hours, minutes, seconds, isLive } = useCountdown(eventDate);
+  const now = useNow();
+  const eventDate = getEventDate(new Date(now));
+  const { days, hours, minutes, seconds, isLive } = computeCountdown(eventDate, now);
 
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 lg:min-h-screen lg:flex lg:items-center">
@@ -192,7 +193,7 @@ export function HeroSection() {
             <p className="mb-2 font-heading text-sm sm:text-base tracking-wide text-[oklch(0.85_0.03_95)]">
               We go live{" "}
               <span className="text-[oklch(0.9_0.19_95)] font-semibold">
-                {getEventSentence()}
+                {getEventSentence(eventDate)}
               </span>
             </p>
             {isLive && (

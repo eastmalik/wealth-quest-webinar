@@ -11,12 +11,16 @@ Single-page webinar registration site with an "underground financial arena" aest
 
 ## Things You'll Want To Edit
 
-**Event date/time (countdown target)** — in `client/src/lib/event.ts`:
+**Weekly schedule (countdown target)** — in `client/src/lib/event.ts`:
 ```ts
-const FALLBACK_EVENT_DATE = "2026-09-19T19:00:00-05:00"; // ← your broadcast date (ISO 8601)
-export const EVENT_DATE_LABEL = "SAT • SEP 19 • 7PM CT";  // ← label shown above the countdown
+export const WEEKLY_SCHEDULE = {
+  weekday: 6,           // 0 = Sunday … 6 = Saturday
+  hour: 19,             // 24-hour, Central time (America/Chicago, DST handled)
+  minute: 0,
+  durationMinutes: 90,  // "live now" shows only inside this window
+};
 ```
-Or set the `VITE_EVENT_DATE` environment variable (Settings → Secrets) to override without code changes.
+The countdown, header label and hero sentence always point at the next session and roll forward on their own.
 
 **Registration endpoint (where leads go)** — the form posts JSON `{ firstName, email, phone, smsConsent, smsConsentText, smsConsentAt, event, source, pageUrl, submittedAt }` to the GoHighLevel inbound-webhook URL in `VITE_REGISTRATION_ENDPOINT`. **If it is not set, or the request fails, the visitor sees an error** — there is no local fallback, so no signup is ever silently lost.
 

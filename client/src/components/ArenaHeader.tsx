@@ -1,4 +1,4 @@
-import { EVENT_DATE_LABEL } from "@/lib/event";
+import { getEventDateLabel } from "@/lib/event";
 import { Gamepad2, Ticket } from "lucide-react";
 
 const NAV = [
@@ -39,7 +39,7 @@ export function ArenaHeader() {
 
         <div className="flex items-center gap-3">
           <span className="hidden lg:inline-block font-display text-[8px] text-[oklch(0.65_0.02_95)] tracking-wider">
-            {EVENT_DATE_LABEL}
+            {getEventDateLabel()}
           </span>
           <a
             href="#register"

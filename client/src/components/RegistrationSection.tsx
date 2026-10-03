@@ -1,7 +1,4 @@
-import {
-  getRegistrationEndpoint,
-  getEventDate,
-} from "@/lib/event";
+import { getRegistrationEndpoint } from "@/lib/event";
 import {
   isValidRegistration,
   SMS_CONSENT_TEXT,
