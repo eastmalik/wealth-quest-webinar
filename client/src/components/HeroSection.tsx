@@ -3,9 +3,9 @@ import { getEventDate, getEventSentence } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
 
-const STAGE_VIDEO = "/manus-storage/hero-live-feed_61bd8494.mp4";
-const STAGE_POSTER = "/manus-storage/hero-live-feed-poster_3ea209b3.jpg";
-const ARENA_BG = "/manus-storage/arena-bg_aebd8084.png";
+const STAGE_VIDEO = "/media/hero-live-feed.mp4";
+const STAGE_POSTER = "/media/hero-live-feed-poster.jpg";
+const ARENA_BG = "/media/arena-bg.webp";
 
 const PARTICLES = [
   { left: "12%", size: 3, duration: "6.5s", delay: "0s" },

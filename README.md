@@ -15,8 +15,8 @@ Single-page webinar registration site with an "underground financial arena" aest
 ```ts
 export const WEEKLY_SCHEDULE = {
   weekday: 6,           // 0 = Sunday … 6 = Saturday
-  hour: 19,             // 24-hour, Central time (America/Chicago, DST handled)
-  minute: 0,
+  hour: 10,             // 24-hour, Central time (America/Chicago, DST handled)
+  minute: 30,
   durationMinutes: 90,  // "live now" shows only inside this window
 };
 ```

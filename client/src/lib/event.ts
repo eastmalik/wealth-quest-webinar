@@ -14,8 +14,8 @@ export const HOST_NAME = "Malik East";
  */
 export const WEEKLY_SCHEDULE = {
   weekday: 6,
-  hour: 19,
-  minute: 0,
+  hour: 10,
+  minute: 30,
   durationMinutes: 90,
 } as const;
 
@@ -83,39 +83,32 @@ export function getEventDate(now: Date = new Date()): Date {
   throw new Error("unreachable: a weekly session always falls within two weeks");
 }
 
-/** Header label, e.g. "SAT • OCT 3 • 7PM CT". */
+const timeIn = (date: Date, timeZone: string, short: boolean) => {
+  const t = date.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true, timeZone });
+  return short ? t.replace(":00", "").replace(" ", "") : t;
+};
+
+/** Header label, e.g. "SAT • OCT 3 • 10:30AM CT / 11:30AM ET". */
 export function getEventDateLabel(date: Date = getEventDate()): string {
   const fmt = (o: Intl.DateTimeFormatOptions) =>
     date.toLocaleString("en-US", { ...o, timeZone: EVENT_TIME_ZONE });
-  const time = fmt({ hour: "numeric", minute: "2-digit", hour12: true })
-    .replace(":00", "")
-    .replace(" ", "");
-  return `${fmt({ weekday: "short" })} • ${fmt({ month: "short" })} ${fmt({ day: "numeric" })} • ${time} CT`.toUpperCase();
+  const times = `${timeIn(date, EVENT_TIME_ZONE, true)} CT / ${timeIn(date, "America/New_York", true)} ET`;
+  return `${fmt({ weekday: "short" })} • ${fmt({ month: "short" })} ${fmt({ day: "numeric" })} • ${times}`.toUpperCase();
 }
 
 /**
  * Plain-language sentence for the hero, derived from the shared event date
- * so it always matches the countdown target. Example:
- * "Saturday, September 19 at 7:00 PM CT"
- * Formatted in the event's timezone (America/Chicago) so visitors anywhere
- * see the correct local-to-event time.
+ * so it always matches the countdown target, in Central and Eastern time.
+ * Example: "Saturday, October 3 at 10:30 AM CT / 11:30 AM ET"
  */
 export function getEventSentence(date: Date = getEventDate()): string {
-  const tz = EVENT_TIME_ZONE;
-  const weekday = date.toLocaleDateString("en-US", { weekday: "long", timeZone: tz });
+  const weekday = date.toLocaleDateString("en-US", { weekday: "long", timeZone: EVENT_TIME_ZONE });
   const monthDay = date.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
-    timeZone: tz,
+    timeZone: EVENT_TIME_ZONE,
   });
-  const time = date
-    .toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-      timeZone: tz,
-    });
-  return `${weekday}, ${monthDay} at ${time} CT`;
+  return `${weekday}, ${monthDay} at ${timeIn(date, EVENT_TIME_ZONE, false)} CT / ${timeIn(date, "America/New_York", false)} ET`;
 }
 
 /**
