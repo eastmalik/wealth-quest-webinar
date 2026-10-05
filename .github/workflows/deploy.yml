@@ -30,7 +30,10 @@ jobs:
           enablement: true
       - run: pnpm exec vite build
       - name: Add SPA fallback
-        run: cp dist/public/index.html dist/public/404.html
+        run: |
+          cp dist/public/index.html dist/public/404.html
+          mkdir -p dist/public/registered
+          cp dist/public/index.html dist/public/registered/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/public
