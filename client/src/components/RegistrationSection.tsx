@@ -7,7 +7,7 @@ import {
   type RegistrationErrors,
 } from "@/lib/registration";
 import { motion } from "framer-motion";
-import { CalendarPlus, CheckCircle2, Gift, Inbox, Loader2, MessageSquareText, Swords } from "lucide-react";
+import { CalendarPlus, CheckCircle2, Gift, Inbox, Loader2, MailCheck, Swords } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -20,19 +20,12 @@ export function RegistrationSection() {
   const [errors, setErrors] = useState<RegistrationErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [serverError, setServerError] = useState("");
-  const [consentError, setConsentError] = useState("");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const payload = { firstName, email, phone };
-    const validation = validateRegistration(payload);
-    setErrors(validation);
-    if (!smsConsent) {
-      setConsentError("Please agree to SMS updates so we can send your ticket and reminders.");
-      return;
-    }
-    setConsentError("");
-    if (!isValidRegistration(payload)) return;
+    setErrors(validateRegistration(payload, smsConsent));
+    if (!isValidRegistration(payload, smsConsent)) return;
 
     setStatus("submitting");
     setServerError("");
@@ -87,9 +80,9 @@ export function RegistrationSection() {
                       desc: "Block the time now — the players who show up live get the most out of it.",
                     },
                     {
-                      icon: MessageSquareText,
-                      title: "SAVE OUR NUMBER",
-                      desc: `We'll text go-live alerts to ${phone.trim()} so you never miss the start.`,
+                      icon: MailCheck,
+                      title: "WATCH YOUR INBOX",
+                      desc: "Your reminders come by email: 24 hours, 1 hour and 10 minutes before we go live.",
                     },
                   ].map((step) => (
                     <div
@@ -176,7 +169,7 @@ export function RegistrationSection() {
 
                   <div>
                     <label htmlFor="phone" className="mb-2 block font-display text-[8px] tracking-wider text-[oklch(0.82_0.165_92)]">
-                      CELL PHONE (FOR LIVE SMS UPDATES)
+                      CELL PHONE (OPTIONAL)
                     </label>
                     <input
                       id="phone"
@@ -198,19 +191,14 @@ export function RegistrationSection() {
                       <input
                         type="checkbox"
                         checked={smsConsent}
-                        onChange={(e) => {
-                          setSmsConsent(e.target.checked);
-                          if (e.target.checked) setConsentError("");
-                        }}
+                        onChange={(e) => setSmsConsent(e.target.checked)}
                         className="mt-0.5 size-4 shrink-0 accent-[oklch(0.82_0.165_92)]"
                       />
                       <span className="text-xs leading-relaxed text-[oklch(0.72_0.02_95)]">
+                        <span className="font-semibold">Optional.</span>{" "}
                         {SMS_CONSENT_TEXT}
                       </span>
                     </label>
-                    {consentError && (
-                      <p className="mt-1.5 text-xs text-[oklch(0.68_0.26_25)]">{consentError}</p>
-                    )}
                   </div>
 
                   {status === "error" && (
@@ -235,8 +223,8 @@ export function RegistrationSection() {
                   </button>
 
                   <p className="text-center text-[11px] leading-relaxed text-[oklch(0.5_0.02_95)]">
-                    No spam. No charge. Just your ticket, your guide, and live
-                    show reminders.
+                    No spam. No charge. Just your ticket, your guide, and email
+                    reminders before each session.
                   </p>
                 </form>
               </>

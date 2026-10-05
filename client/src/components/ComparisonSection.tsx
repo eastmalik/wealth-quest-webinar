@@ -19,7 +19,7 @@ const NEW_WAY = [
 
 export function ComparisonSection() {
   return (
-    <section id="comparison" className="relative py-20 sm:py-28">
+    <section id="comparison" className="relative overflow-hidden py-20 sm:py-28">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
           <p className="font-display text-[9px] sm:text-[10px] tracking-wider text-[oklch(0.82_0.165_92)]">

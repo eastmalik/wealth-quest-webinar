@@ -18,7 +18,11 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 /** Accepts US-style numbers with optional punctuation; requires 10–11 digits. */
 const PHONE_DIGITS_RE = /^\+?[\d\s().-]{7,20}$/;
 
-export function validateRegistration(p: RegistrationPayload): RegistrationErrors {
+/**
+ * Phone is optional (texting is not live yet). It is checked only when given,
+ * and required only if the visitor ticks the optional SMS consent box.
+ */
+export function validateRegistration(p: RegistrationPayload, smsConsent = false): RegistrationErrors {
   const errors: RegistrationErrors = {};
 
   if (!p.firstName || p.firstName.trim().length < 2) {
@@ -29,16 +33,19 @@ export function validateRegistration(p: RegistrationPayload): RegistrationErrors
     errors.email = "Enter a valid email address.";
   }
 
-  const digits = (p.phone || "").replace(/\D/g, "");
-  if (!p.phone || !PHONE_DIGITS_RE.test(p.phone.trim()) || digits.length < 10 || digits.length > 11) {
-    errors.phone = "Enter a valid cell number for SMS updates.";
+  const phone = (p.phone || "").trim();
+  const digits = phone.replace(/\D/g, "");
+  if (phone && (!PHONE_DIGITS_RE.test(phone) || digits.length < 10 || digits.length > 11)) {
+    errors.phone = "Enter a valid cell number, or leave it blank.";
+  } else if (!phone && smsConsent) {
+    errors.phone = "Add your cell number for texts, or untick the box below.";
   }
 
   return errors;
 }
 
-export function isValidRegistration(p: RegistrationPayload): boolean {
-  return Object.keys(validateRegistration(p)).length === 0;
+export function isValidRegistration(p: RegistrationPayload, smsConsent = false): boolean {
+  return Object.keys(validateRegistration(p, smsConsent)).length === 0;
 }
 
 /**
