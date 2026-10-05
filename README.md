@@ -22,7 +22,7 @@ export const WEEKLY_SCHEDULE = {
 ```
 The countdown, header label and hero sentence always point at the next session and roll forward on their own.
 
-**Registration endpoint (where leads go)** — the form posts JSON `{ firstName, email, phone, smsConsent, smsConsentText, smsConsentAt, event, source, pageUrl, submittedAt }` to the GoHighLevel inbound-webhook URL in `VITE_REGISTRATION_ENDPOINT`. **If it is not set, or the request fails, the visitor sees an error** — there is no local fallback, so no signup is ever silently lost.
+**Registration (where leads go)** — the form is GoHighLevel's own form "THE FLOW - Registration" (ID in `client/src/lib/ghlForm.ts`), embedded in the page. The page pre-fills two hidden fields through the form link: `session` (the Saturday the visitor registered for, e.g. `2026-10-10T10:30:00-05:00`) and `source` (`arise`, `ec`, `7b` or `direct`, from `?source=` on the link or the referring 7Band site). Change the fields, styling and thank-you message in GoHighLevel, not here.
 
 **Copy (bosses, acts, proof stat)** — all in `client/src/lib/event.ts` (`BOSS_CARDS`, `ACTS`, `PROOF_STAT`, `PROOF_COPY`).
 
