@@ -36,8 +36,27 @@ describe("validateRegistration", () => {
     }
   });
 
+  it("accepts a registration with no phone number", () => {
+    expect(validateRegistration({ firstName: "Malik", email: "malik@example.com", phone: "" })).toEqual({});
+  });
+
+  it("asks for a phone only when the optional SMS box is ticked", () => {
+    expect(validateRegistration({ firstName: "Malik", email: "malik@example.com", phone: "" }, true).phone).toBeTruthy();
+    expect(validateRegistration({ firstName: "Malik", email: "malik@example.com", phone: "5555555555" }, true)).toEqual({});
+  });
+
+  it("sends no consent timestamp when the SMS box is left unticked", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", fetchMock);
+    await submitRegistration({ firstName: "Malik", email: "malik@example.com", phone: "" }, false, "https://example.com/hook");
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(body.smsConsent).toBe(false);
+    expect(body.smsConsentAt).toBeNull();
+    vi.unstubAllGlobals();
+  });
+
   it("rejects phone numbers without 10 digits", () => {
-    for (const phone of ["12345", "555-123", ""]) {
+    for (const phone of ["12345", "555-123"]) {
       const errors = validateRegistration({
         firstName: "Malik",
         email: "malik@example.com",
@@ -63,6 +82,7 @@ describe("validateRegistration", () => {
     expect(
       isValidRegistration({ firstName: "", email: "", phone: "" })
     ).toBe(false);
+    expect(isValidRegistration({ firstName: "Malik", email: "malik@example.com", phone: "" })).toBe(true);
   });
 });
 

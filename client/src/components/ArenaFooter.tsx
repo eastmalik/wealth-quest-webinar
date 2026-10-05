@@ -1,9 +1,12 @@
 import { HOST_NAME } from "@/lib/event";
 import { Gamepad2 } from "lucide-react";
 
-const ECOSYSTEM = [
-  { label: "7BAND FINANCIAL AGENCY", href: "https://www.7bandfinancialagency.com" },
-  { label: "ARISE CREDIT PRO", href: "https://arisecreditpro.com" },
+/** The family footer: same wording on every 7Band site. */
+const FAMILY = [
+  { label: "THE FLOW", detail: "free weekly webinar", href: "https://theflow.7bandfinancialagency.com" },
+  { label: "7Band Financial Agency", detail: "life insurance", href: "https://www.7bandfinancialagency.com" },
+  { label: "Arise Credit Pro", detail: "credit", href: "https://www.arisecreditpro.com" },
+  { label: "East Consulting LLC", detail: "business structure", href: "https://www.eastconsultingllc.com" },
 ];
 
 export function ArenaFooter() {
@@ -21,17 +24,21 @@ export function ArenaFooter() {
             HOSTED BY {HOST_NAME.toUpperCase()}
           </p>
           <nav
-            aria-label="7Band ecosystem"
-            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-heading text-[11px] tracking-[0.2em]"
+            aria-label="Part of the 7Band family"
+            className="max-w-3xl text-[11px] leading-relaxed text-[oklch(0.6_0.02_95)]"
           >
-            {ECOSYSTEM.map((site) => (
-              <a
-                key={site.href}
-                href={site.href}
-                className="text-[oklch(0.75_0.03_95)] hover:text-[oklch(0.9_0.19_95)] transition"
-              >
-                {site.label}
-              </a>
+            <span className="font-semibold text-[oklch(0.75_0.03_95)]">Part of the 7Band family</span>
+            {FAMILY.map((site) => (
+              <span key={site.href}>
+                {" · "}
+                <a
+                  href={site.href}
+                  className="text-[oklch(0.82_0.165_92)] hover:text-[oklch(0.9_0.19_95)] underline-offset-2 hover:underline transition"
+                >
+                  {site.label}
+                </a>
+                {` — ${site.detail}`}
+              </span>
             ))}
           </nav>
           <div className="gold-hairline w-40 my-2" />
