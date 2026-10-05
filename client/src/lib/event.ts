@@ -112,15 +112,6 @@ export function getEventSentence(date: Date = getEventDate()): string {
   return `${weekday}, ${monthDay} at ${timeIn(date, EVENT_TIME_ZONE, false)} CT / ${timeIn(date, "America/New_York", false)} ET`;
 }
 
-/**
- * Registration endpoint: the GoHighLevel inbound-webhook URL, set as
- * VITE_REGISTRATION_ENDPOINT at build time. When empty, the form shows an
- * error instead of pretending the registration went through.
- */
-export function getRegistrationEndpoint(): string {
-  return (import.meta.env.VITE_REGISTRATION_ENDPOINT as string | undefined) ?? "";
-}
-
 export interface BossCard {
   id: string;
   boss: string;
