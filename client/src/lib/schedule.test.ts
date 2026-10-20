@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { computeCountdown } from "../hooks/useCountdown";
 import { getEventDate, getEventDateLabel } from "./event";
 
-// Schedule under test: Saturdays at 10:30 AM Central, 90-minute window.
+// Schedule under test: Saturdays at 10:30 AM Central, 30-minute window.
 const at = (iso: string) => new Date(iso);
 
 describe("weekly schedule", () => {
@@ -15,14 +15,14 @@ describe("weekly schedule", () => {
   });
 
   it("stays on the current session while it is live, and shows live", () => {
-    const now = at("2026-10-03T11:30:00-05:00");
+    const now = at("2026-10-03T10:45:00-05:00");
     const start = getEventDate(now);
     expect(start.toISOString()).toBe("2026-10-03T15:30:00.000Z");
     expect(computeCountdown(start, now.getTime()).isLive).toBe(true);
   });
 
-  it("rolls forward to next week once the 90-minute window closes", () => {
-    const now = at("2026-10-03T12:00:00-05:00");
+  it("rolls forward to next week once the 30-minute window closes", () => {
+    const now = at("2026-10-03T11:00:00-05:00");
     const start = getEventDate(now);
     expect(start.toISOString()).toBe("2026-10-10T15:30:00.000Z");
     expect(computeCountdown(start, now.getTime()).isLive).toBe(false);
