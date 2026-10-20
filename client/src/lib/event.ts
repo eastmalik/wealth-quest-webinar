@@ -17,7 +17,7 @@ export const WEEKLY_SCHEDULE = {
   weekday: 6,
   hour: 10,
   minute: 30,
-  durationMinutes: 90,
+  durationMinutes: 30,
 } as const;
 
 export const EVENT_TIME_ZONE = "America/Chicago";

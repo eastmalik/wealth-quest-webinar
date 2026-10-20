@@ -17,7 +17,7 @@ export const WEEKLY_SCHEDULE = {
   weekday: 6,           // 0 = Sunday … 6 = Saturday
   hour: 10,             // 24-hour, Central time (America/Chicago, DST handled)
   minute: 30,
-  durationMinutes: 90,  // "live now" shows only inside this window
+  durationMinutes: 30,  // "live now" shows only inside this window
 };
 ```
 The countdown, header label and hero sentence always point at the next session and roll forward on their own.
