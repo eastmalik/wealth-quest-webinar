@@ -50,6 +50,11 @@ export function ArenaFooter() {
             for. If a life insurance policy is right for you, the carrier pays
             him a commission — and he'll tell you how much.
           </p>
+          <p className="text-[11px] text-[oklch(0.6_0.02_95)]">
+            <a href="/privacy" className="text-[oklch(0.82_0.165_92)] hover:underline">Privacy Policy</a>
+            {" · "}
+            <a href="/terms" className="text-[oklch(0.82_0.165_92)] hover:underline">Terms &amp; Conditions</a>
+          </p>
           <p className="text-[11px] text-[oklch(0.45_0.02_95)]">
             © {new Date().getFullYear()} 7Band Financial Agency. All rights reserved.
           </p>
