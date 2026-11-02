@@ -22,6 +22,8 @@ export const WEEKLY_SCHEDULE = {
 ```
 The countdown, header label and hero sentence always point at the next session and roll forward on their own.
 
+**Launch date** — also in `client/src/lib/event.ts`: `LAUNCH_DATE = { year: 2026, month: 12, day: 12 }`. Until that session ends, everything points at the launch (8:30 AM PT / 10:30 AM CT / 11:30 AM ET) and the hero badge reads "PREMIERES DEC 12"; after it, the weekly schedule takes over.
+
 **Registration (where leads go)** — the form is GoHighLevel's own form "THE FLOW - Registration" (ID in `client/src/lib/ghlForm.ts`), embedded in the page. The page pre-fills two hidden fields through the form link: `session` (the Saturday the visitor registered for, e.g. `2026-10-10T10:30:00-05:00`) and `source` (`arise`, `ec`, `7b` or `direct`, from `?source=` on the link or the referring 7Band site). Change the fields, styling and thank-you message in GoHighLevel, not here.
 
 **Copy (bosses, acts, proof stat)** — all in `client/src/lib/event.ts` (`BOSS_CARDS`, `ACTS`, `PROOF_STAT`, `PROOF_COPY`).

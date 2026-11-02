@@ -1,5 +1,5 @@
 import { computeCountdown, useNow, pad2 } from "@/hooks/useCountdown";
-import { getEventDate, getEventSentence } from "@/lib/event";
+import { getEventDate, getEventSentence, isBeforeLaunch } from "@/lib/event";
 import { ChevronDown, Radio, Users } from "lucide-react";
 import { useState } from "react";
 
@@ -161,7 +161,7 @@ export function HeroSection() {
             </span>
             <span className="hidden sm:inline text-[oklch(0.82_0.165_92/60%)]">|</span>
             <span className="font-heading text-[11px] sm:text-xs tracking-[0.18em] text-[oklch(0.68_0.26_25)]">
-              FREE • EVERY SATURDAY
+              {isBeforeLaunch(new Date(now)) ? "FREE • PREMIERES DEC 12" : "FREE • EVERY SATURDAY"}
             </span>
           </div>
 

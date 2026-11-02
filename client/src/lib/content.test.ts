@@ -29,7 +29,7 @@ describe("event content", () => {
   });
 
   it("formats the plain-language event sentence from the shared date", () => {
-    const sentence = getEventSentence(new Date("2026-10-03T10:30:00-05:00"));
-    expect(sentence).toBe("Saturday, October 3 at 10:30 AM CT / 11:30 AM ET");
+    const sentence = getEventSentence(new Date("2026-12-12T10:30:00-06:00"));
+    expect(sentence).toBe("Saturday, December 12 at 8:30 AM PT / 10:30 AM CT / 11:30 AM ET");
   });
 });
