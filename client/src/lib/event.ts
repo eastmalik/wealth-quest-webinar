@@ -22,6 +22,13 @@ export const WEEKLY_SCHEDULE = {
 
 export const EVENT_TIME_ZONE = "America/Chicago";
 
+/**
+ * The first live session (the launch). Until it happens, the countdown,
+ * the form and every date on the site point here; after it, the weekly
+ * schedule above takes over. Date is in Central time.
+ */
+export const LAUNCH_DATE = { year: 2026, month: 12, day: 12 } as const;
+
 const DAY_MS = 86_400_000;
 
 /** Wall-clock parts of `date` in the event's time zone. */
@@ -66,6 +73,28 @@ function zonedTimeToUtc(year: number, month: number, day: number, hour: number, 
  * window closes), otherwise the next one.
  */
 export function getEventDate(now: Date = new Date()): Date {
+  const launch = launchStart();
+  const weekly = nextWeeklySession(now);
+  return weekly.getTime() < launch.getTime() ? launch : weekly;
+}
+
+/** Start of the launch session. */
+export function launchStart(): Date {
+  return zonedTimeToUtc(
+    LAUNCH_DATE.year,
+    LAUNCH_DATE.month,
+    LAUNCH_DATE.day,
+    WEEKLY_SCHEDULE.hour,
+    WEEKLY_SCHEDULE.minute
+  );
+}
+
+/** True before the launch session has ended. */
+export function isBeforeLaunch(now: Date = new Date()): boolean {
+  return now.getTime() < launchStart().getTime() + WEEKLY_SCHEDULE.durationMinutes * 60_000;
+}
+
+function nextWeeklySession(now: Date): Date {
   const today = zonedParts(now);
   const ahead = (WEEKLY_SCHEDULE.weekday - today.weekday + 7) % 7;
   for (const offset of [ahead - 7, ahead, ahead + 7]) {
@@ -89,18 +118,18 @@ const timeIn = (date: Date, timeZone: string, short: boolean) => {
   return short ? t.replace(":00", "").replace(" ", "") : t;
 };
 
-/** Header label, e.g. "SAT • OCT 3 • 10:30AM CT / 11:30AM ET". */
+/** Header label, e.g. "SAT • DEC 12 • 8:30AM PT / 10:30AM CT / 11:30AM ET". */
 export function getEventDateLabel(date: Date = getEventDate()): string {
   const fmt = (o: Intl.DateTimeFormatOptions) =>
     date.toLocaleString("en-US", { ...o, timeZone: EVENT_TIME_ZONE });
-  const times = `${timeIn(date, EVENT_TIME_ZONE, true)} CT / ${timeIn(date, "America/New_York", true)} ET`;
+  const times = `${timeIn(date, "America/Los_Angeles", true)} PT / ${timeIn(date, EVENT_TIME_ZONE, true)} CT / ${timeIn(date, "America/New_York", true)} ET`;
   return `${fmt({ weekday: "short" })} • ${fmt({ month: "short" })} ${fmt({ day: "numeric" })} • ${times}`.toUpperCase();
 }
 
 /**
  * Plain-language sentence for the hero, derived from the shared event date
- * so it always matches the countdown target, in Central and Eastern time.
- * Example: "Saturday, October 3 at 10:30 AM CT / 11:30 AM ET"
+ * so it always matches the countdown target, in Pacific, Central and Eastern time.
+ * Example: "Saturday, December 12 at 8:30 AM PT / 10:30 AM CT / 11:30 AM ET"
  */
 export function getEventSentence(date: Date = getEventDate()): string {
   const weekday = date.toLocaleDateString("en-US", { weekday: "long", timeZone: EVENT_TIME_ZONE });
@@ -109,7 +138,7 @@ export function getEventSentence(date: Date = getEventDate()): string {
     day: "numeric",
     timeZone: EVENT_TIME_ZONE,
   });
-  return `${weekday}, ${monthDay} at ${timeIn(date, EVENT_TIME_ZONE, false)} CT / ${timeIn(date, "America/New_York", false)} ET`;
+  return `${weekday}, ${monthDay} at ${timeIn(date, "America/Los_Angeles", false)} PT / ${timeIn(date, EVENT_TIME_ZONE, false)} CT / ${timeIn(date, "America/New_York", false)} ET`;
 }
 
 export interface BossCard {
