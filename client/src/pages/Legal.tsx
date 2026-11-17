@@ -56,7 +56,7 @@ export function PrivacyPolicy() {
             <p>
               THE FLOW is a free weekly webinar hosted by Malik East and run by 7Band Financial
               Agency ("we," "us"). This policy explains what we collect when you visit
-              theflow.7bandfinancialagency.com or register for the webinar, and how we use it.
+              theflow.7bandfinancialagency.com register for the webinar or book a free call, and how we use it.
             </p>
           ),
         },
@@ -64,7 +64,8 @@ export function PrivacyPolicy() {
           heading: "What we collect",
           body: (
             <ul>
-              <li>What you enter on the registration form: your name, email address, and, if you choose to give it, your mobile phone number and your answers to the form's questions.</li>
+              <li>What you enter on the registration form or the free call form: your name, email address, and, if you choose to give it, your mobile phone number and your answers to the form's questions.</li>
+              <li>The time you book for a free call.</li>
               <li>Which webinar date you registered for and which site sent you to us.</li>
               <li>Whether you opened our emails, clicked our links or attended the webinar.</li>
               <li>Basic technical data your browser sends, such as device type and pages visited.</li>
@@ -76,7 +77,7 @@ export function PrivacyPolicy() {
           body: (
             <ul>
               <li>To register you and send your confirmation, Zoom link, reminders and replay.</li>
-              <li>To send text messages about the webinar, only if you checked the box agreeing to receive them.</li>
+              <li>To send text messages about the webinar or your free call, only if you checked the box agreeing to receive them.</li>
               <li>To answer your questions and, if you book one, to hold your free call.</li>
               <li>To improve the webinar and this site.</li>
             </ul>
@@ -190,16 +191,17 @@ export function TermsAndConditions() {
           body: (
             <>
               <p>
-                <strong>Program:</strong> THE FLOW webinar updates from 7Band Financial Agency.
+                <strong>Program:</strong> THE FLOW webinar and free call updates from 7Band Financial Agency.
               </p>
               <p>
                 <strong>What you'll get:</strong> if you checked the box agreeing to receive text
-                messages, we will text you about the webinar you registered for: your confirmation,
-                reminders, the join link and the replay.
+                messages, we will text you about the webinar you registered for (your confirmation,
+                reminders, the join link and the replay) or the free call you booked (your
+                confirmation and reminders).
               </p>
               <p>
                 <strong>How often:</strong> message frequency varies, usually up to 6 messages for
-                each webinar you register for.
+                each webinar you register for and up to 3 for each call you book.
               </p>
               <p>
                 <strong>Cost:</strong> message and data rates may apply.
@@ -210,7 +212,7 @@ export function TermsAndConditions() {
                 help, or email {mail}.
               </p>
               <p>
-                Agreeing to receive text messages is not a condition of registering. Carriers are not
+                Agreeing to receive text messages is not a condition of registering or booking a call. Carriers are not
                 liable for delayed or undelivered messages. See our{" "}
                 <a href="/privacy">Privacy Policy</a> for how we handle your information.
               </p>
