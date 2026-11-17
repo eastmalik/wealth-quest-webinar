@@ -34,7 +34,7 @@ jobs:
           cp dist/public/index.html dist/public/404.html
           mkdir -p dist/public/registered
           cp dist/public/index.html dist/public/registered/index.html
-          for page in privacy terms; do
+          for page in call privacy terms; do
             mkdir -p dist/public/$page
             cp dist/public/index.html dist/public/$page/index.html
           done
