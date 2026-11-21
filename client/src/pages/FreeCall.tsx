@@ -5,12 +5,11 @@ import { CalendarCheck, ClipboardList, PhoneCall } from "lucide-react";
 import { useEffect } from "react";
 
 /**
- * The free 30-minute call. GoHighLevel form "THE FLOW | Free Call" takes the
- * visitor's details and SMS consent first; on submit GoHighLevel opens the
- * booking calendar (form Settings → On submit → Open URL).
+ * The free 30-minute call: the GoHighLevel booking calendar, embedded right on
+ * the page. The visitor picks a time, then fills in the calendar's own form
+ * (name, email, phone and the optional SMS consent box) in one booking.
  */
-export const CALL_FORM_ID = "eJvUrP07nWtrOZ7IhmTJ";
-export const CALL_FORM_NAME = "THE FLOW | Free Call";
+export const CALENDAR_ID = "kclfxyrhhmxucq9DWuZq";
 
 export default function FreeCall() {
   useEffect(() => {
@@ -24,12 +23,12 @@ export default function FreeCall() {
   }, []);
 
   const steps = [
-    { icon: ClipboardList, title: "1. TELL US WHO YOU ARE", desc: "Your name, email and phone, so we can confirm your call." },
-    { icon: CalendarCheck, title: "2. PICK YOUR TIME", desc: "The calendar opens right after you submit. Choose the time that works for you." },
+    { icon: CalendarCheck, title: "1. PICK YOUR TIME", desc: "Choose a day and time below that works for you." },
+    { icon: ClipboardList, title: "2. TELL US WHO YOU ARE", desc: "Your name, email and phone, so we can confirm your call." },
     { icon: PhoneCall, title: "3. TALK WITH MALIK", desc: "30 minutes to find where you are on the map, and your next step." },
   ];
 
-  const frameId = `inline-${CALL_FORM_ID}`;
+  const frameId = `${CALENDAR_ID}_free_call`;
 
   return (
     <div className="min-h-screen bg-[oklch(0.11_0.008_95)] text-foreground antialiased">
@@ -69,24 +68,12 @@ export default function FreeCall() {
             </div>
 
             <iframe
-              src={`https://api.leadconnectorhq.com/widget/form/${CALL_FORM_ID}`}
+              src={`https://api.leadconnectorhq.com/widget/booking/${CALENDAR_ID}`}
               id={frameId}
-              title={CALL_FORM_NAME}
-              className="mt-6 block w-full border-0"
-              style={{ minHeight: 760 }}
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name={CALL_FORM_NAME}
-              data-height="851"
-              data-layout-iframe-id={frameId}
-              data-form-id={CALL_FORM_ID}
-              data-cookie-consent="true"
-              data-cookie-consent-provider="auto"
+              title="Book your free call"
+              scrolling="no"
+              className="mt-6 block w-full overflow-hidden border-0"
+              style={{ minHeight: 900 }}
             />
 
             <p className="mt-4 text-center text-[11px] leading-relaxed text-[oklch(0.5_0.02_95)]">
