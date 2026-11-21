@@ -9,7 +9,7 @@ import { useEffect } from "react";
  * the page. The visitor picks a time, then fills in the calendar's own form
  * (name, email, phone and the optional SMS consent box) in one booking.
  */
-export const CALENDAR_ID = "kclfxyrhhmxucq9DWuZq";
+export const CALENDAR_URL = "https://api.leadconnectorhq.com/widget/bookings/the-flow-next-step-call";
 
 export default function FreeCall() {
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function FreeCall() {
     { icon: PhoneCall, title: "3. TALK WITH MALIK", desc: "30 minutes to find where you are on the map, and your next step." },
   ];
 
-  const frameId = `${CALENDAR_ID}_free_call`;
+  const frameId = "the-flow-next-step-call_free_call";
 
   return (
     <div className="min-h-screen bg-[oklch(0.11_0.008_95)] text-foreground antialiased">
@@ -68,7 +68,7 @@ export default function FreeCall() {
             </div>
 
             <iframe
-              src={`https://api.leadconnectorhq.com/widget/booking/${CALENDAR_ID}`}
+              src={CALENDAR_URL}
               id={frameId}
               title="Book your free call"
               scrolling="no"
