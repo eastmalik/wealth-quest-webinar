@@ -1,6 +1,10 @@
 import { HOST_NAME } from "@/lib/event";
 import { Gamepad2 } from "lucide-react";
 
+/** THE FLOW's Eventbrite listing (sends people back here to claim their ticket). */
+const EVENTBRITE_URL =
+  "https://www.eventbrite.com/e/the-flow-the-generational-wealth-quest-free-live-webinar-tickets-2005223061155";
+
 /** The family footer: same wording on every 7Band site. */
 const FAMILY = [
   { label: "THE FLOW", detail: "free weekly webinar", href: "https://theflow.7bandfinancialagency.com" },
@@ -49,6 +53,16 @@ export function ArenaFooter() {
             How Malik gets paid: education and preparation are what he charges
             for. If a life insurance policy is right for you, the carrier pays
             him a commission — and he'll tell you how much.
+          </p>
+          <p className="text-[11px] text-[oklch(0.6_0.02_95)]">
+            <a
+              href={EVENTBRITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[oklch(0.82_0.165_92)] hover:underline"
+            >
+              Find us on Eventbrite
+            </a>
           </p>
           <p className="text-[11px] text-[oklch(0.6_0.02_95)]">
             <a href="/privacy" className="text-[oklch(0.82_0.165_92)] hover:underline">Privacy Policy</a>
