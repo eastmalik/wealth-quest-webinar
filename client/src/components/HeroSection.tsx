@@ -210,7 +210,7 @@ export function HeroSection() {
           </div>
 
           {/* CTA */}
-          <div className="mt-9 flex flex-col sm:flex-row items-center sm:justify-center lg:justify-start gap-5">
+          <div className="mt-9 flex flex-col items-center justify-center gap-4">
             <a
               href="#register"
               className="animate-gold-pulse inline-flex items-center justify-center gap-3 bg-[oklch(0.82_0.165_92)] px-7 py-4 font-display text-[11px] sm:text-xs leading-relaxed text-[oklch(0.14_0.02_95)] border-2 border-[oklch(0.9_0.19_95)] hover:bg-[oklch(0.9_0.19_95)] active:translate-y-0.5 transition"
