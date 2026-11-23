@@ -59,6 +59,15 @@ export function BossesSection() {
             );
           })}
         </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="/map"
+            className="inline-flex items-center gap-2 border-2 border-[oklch(0.82_0.165_92/60%)] px-5 py-3 font-display text-[9px] text-[oklch(0.9_0.19_95)] hover:bg-[oklch(0.82_0.165_92/10%)] transition"
+          >
+            SEE THE FULL QUEST MAP →
+          </a>
+        </div>
       </div>
     </section>
   );
