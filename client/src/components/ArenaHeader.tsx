@@ -3,6 +3,7 @@ import { Gamepad2, Ticket } from "lucide-react";
 
 const NAV = [
   { href: "/#stakes", label: "ABOUT" },
+  { href: "/map", label: "QUEST MAP" },
   { href: "/#host", label: "YOUR HOST" },
   { href: "/#register", label: "GET TICKET" },
 ];
@@ -30,7 +31,7 @@ export function ArenaHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="font-heading text-xs tracking-[0.2em] text-[oklch(0.75_0.03_95)] hover:text-[oklch(0.9_0.19_95)] hover:text-glow-gold-soft transition"
+              className="whitespace-nowrap font-heading text-xs tracking-[0.2em] text-[oklch(0.75_0.03_95)] hover:text-[oklch(0.9_0.19_95)] hover:text-glow-gold-soft transition"
             >
               {item.label}
             </a>
